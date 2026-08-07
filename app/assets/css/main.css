@@ -1362,18 +1362,6 @@ input {
   margin-top: 2px;
 }
 
-.sheet-row .copy-tag {
-  margin-left: auto;
-  flex-shrink: 0;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-}
-
 .sheet-row .wa-btn {
   margin-left: auto;
   flex-shrink: 0;

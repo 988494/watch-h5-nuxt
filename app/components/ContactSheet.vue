@@ -12,7 +12,7 @@
           <div class="row-label">{{ $t('contact.copyWechat') }}</div>
           <div class="row-value">{{ displayWechat }}</div>
         </div>
-        <span class="copy-tag">{{ $t('contact.copyWechatTag') }}</span>
+        <span class="wa-btn">{{ $t('contact.copyWechatTag') }}</span>
       </div>
 
       <div class="sheet-row whatsapp" @click="openWhatsapp">
