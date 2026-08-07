@@ -1,10 +1,11 @@
 <template>
   <button class="float-contact-btn" aria-label="contact" @click="openContact">
     <svg class="float-contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- 客服人形 + 耳机 -->
-      <circle cx="12" cy="8" r="4" fill="currentColor" />
-      <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" fill="currentColor" />
-      <path d="M20 15v-3a8 8 0 1 0-16 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      <!-- 消息气泡 -->
+      <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.2 0-2.4-.25-3.5-.7L3 21l1.7-5.9a8.5 8.5 0 1 1 16.3-3.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+      <circle cx="8.5" cy="11.5" r="1" fill="currentColor" />
+      <circle cx="12" cy="11.5" r="1" fill="currentColor" />
+      <circle cx="15.5" cy="11.5" r="1" fill="currentColor" />
     </svg>
   </button>
 </template>
