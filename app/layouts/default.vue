@@ -66,10 +66,6 @@
           <span class="drawer-nav-icon">❓</span>
           <span>{{ $t('nav.faq') }}</span>
         </button>
-        <button class="drawer-nav-item" @click="openContact">
-          <span class="drawer-nav-icon">✉</span>
-          <span>{{ $t('nav.contact') }}</span>
-        </button>
       </nav>
     </aside>
 
@@ -87,8 +83,6 @@ const { locale, locales } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
 
-const contact = useContactStore()
-
 const menuOpen = ref(false)
 const currentLocale = computed(() => locale.value)
 
@@ -102,11 +96,6 @@ function go(path: string) {
   menuOpen.value = false
   // 整页跳转：页面数据依赖服务端读取，SPA 导航不触发 SSR 会缺数据
   window.location.href = localePath(path)
-}
-
-function openContact() {
-  menuOpen.value = false
-  contact.open()
 }
 
 function onLocaleChange(event: Event) {
