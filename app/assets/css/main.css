@@ -1809,7 +1809,8 @@ input {
 }
 
 .float-contact-icon {
-  font-size: 24px;
+  width: 26px;
+  height: 26px;
   color: #16120a;
 }
 
