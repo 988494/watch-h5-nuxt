@@ -1,0 +1,87 @@
+{
+  "brand": "Luxury Timepieces",
+  "brandSub": "PREMIUM REPLICA",
+  "nav": {
+    "home": "Home",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "drawer": {
+    "language": "Language"
+  },
+  "banner": {
+    "s1Title": "Precision & Elegance",
+    "s1Sub": "Crafted by master watchmakers",
+    "s2Title": "Timeless Luxury",
+    "s2Sub": "The art of fine timekeeping",
+    "s3Title": "Adventure Ready",
+    "s3Sub": "Built for the deep and beyond",
+    "s4Title": "Bold Engineering",
+    "s4Sub": "Pushing the limits of design"
+  },
+  "trust": {
+    "authentic": "Dealer Verified",
+    "secure": "Secure Deal",
+    "shipping": "Fast Shipping",
+    "warranty": "Warranty"
+  },
+  "section": {
+    "title": "Featured Watches",
+    "count": "{count} models"
+  },
+  "filter": {
+    "allBrands": "All Brands",
+    "allSeries": "All Series"
+  },
+  "card": {
+    "view": "View"
+  },
+  "detail": {
+    "title": "Product Details",
+    "factory": "1:1 Replica",
+    "save": "Save {pct}%",
+    "specs": "Core Specifications",
+    "desc": "Description",
+    "notFound": "Product not found",
+    "back": "Back"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "sub": "Copy WeChat ID to add our consultant",
+    "copyWechat": "Copy WeChat",
+    "copyWechatTag": "Copy",
+    "whatsapp": "WhatsApp",
+    "close": "Close",
+    "copied": "WeChat ID copied, open WeChat to add"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "ctaText": "Still have questions? Contact our consultant directly.",
+    "items": {
+      "q1": {
+        "q": "Are your watches genuine?",
+        "a": "We sell high-quality 1:1 replica watches produced by top factories. Every piece is carefully inspected for quality before shipment."
+      },
+      "q2": {
+        "q": "How do I place an order?",
+        "a": "Contact us via WeChat or WhatsApp with the model you like. We will confirm stock, price and arrange delivery for you."
+      },
+      "q3": {
+        "q": "How long is shipping?",
+        "a": "We ship via fast express with tracking. Domestic delivery usually takes 1-3 days; international shipping takes about 5-10 days."
+      },
+      "q4": {
+        "q": "Do you offer returns or exchanges?",
+        "a": "Yes. If the watch arrives damaged or not as described, we support exchange or refund within a certain period."
+      },
+      "q5": {
+        "q": "Is there a warranty?",
+        "a": "Every watch includes after-sales support. If any movement issue occurs, we provide repair or replacement service."
+      },
+      "q6": {
+        "q": "How do I pay?",
+        "a": "We support secure payment methods. Specific options are confirmed by our consultant when you place the order."
+      }
+    }
+  }
+}

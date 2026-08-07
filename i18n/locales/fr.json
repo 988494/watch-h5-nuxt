@@ -1,0 +1,87 @@
+{
+  "brand": "Montres de Luxe",
+  "brandSub": "RÉPLIQUE PREMIUM",
+  "nav": {
+    "home": "Accueil",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "drawer": {
+    "language": "Langue"
+  },
+  "banner": {
+    "s1Title": "Précision et Élégance",
+    "s1Sub": "Créé par des maîtres horlogers",
+    "s2Title": "Luxe Intemporel",
+    "s2Sub": "L'art de l'horlogerie fine",
+    "s3Title": "Prêt pour l'Aventure",
+    "s3Sub": "Conçu pour la profondeur et au-delà",
+    "s4Title": "Ingénierie Audacieuse",
+    "s4Sub": "Repousser les limites du design"
+  },
+  "trust": {
+    "authentic": "Vérifié",
+    "secure": "Transaction Sûre",
+    "shipping": "Expédition Rapide",
+    "warranty": "Garantie"
+  },
+  "section": {
+    "title": "Montres en Vedette",
+    "count": "{count} modèles"
+  },
+  "filter": {
+    "allBrands": "Toutes les Marques",
+    "allSeries": "Toutes les Séries"
+  },
+  "card": {
+    "view": "Voir"
+  },
+  "detail": {
+    "title": "Détails du Produit",
+    "factory": "Réplique 1:1",
+    "save": "Économisez {pct}%",
+    "specs": "Spécifications",
+    "desc": "Description",
+    "notFound": "Produit introuvable",
+    "back": "Retour"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "sub": "Copiez le WeChat pour nous contacter",
+    "copyWechat": "Copier WeChat",
+    "copyWechatTag": "Copier",
+    "whatsapp": "WhatsApp",
+    "close": "Fermer",
+    "copied": "ID WeChat copié, ouvrez WeChat pour ajouter"
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "ctaText": "Encore des questions ? Contactez directement notre consultant.",
+    "items": {
+      "q1": {
+        "q": "Vos montres sont-elles authentiques ?",
+        "a": "Nous vendons des répliques 1:1 de haute qualité des meilleures usines. Chaque pièce est inspectée avant expédition."
+      },
+      "q2": {
+        "q": "Comment passer une commande ?",
+        "a": "Contactez-nous via WeChat ou WhatsApp avec le modèle souhaité. Nous confirmons le stock, le prix et l'expédition."
+      },
+      "q3": {
+        "q": "Quel est le délai de livraison ?",
+        "a": "Expédition rapide avec suivi. National 1-3 jours ; international environ 5-10 jours."
+      },
+      "q4": {
+        "q": "Proposez-vous retours ou échanges ?",
+        "a": "Oui. Si la montre arrive endommagée ou non conforme, nous soutenons l'échange ou le remboursement."
+      },
+      "q5": {
+        "q": "Y a-t-il une garantie ?",
+        "a": "Chaque montre inclut un support après-vente. En cas de problème de mouvement, réparation ou remplacement."
+      },
+      "q6": {
+        "q": "Comment payer ?",
+        "a": "Nous soutenons des méthodes de paiement sécurisées. Les options sont confirmées à la commande."
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#052e22"/>
+      <stop offset="50%" stop-color="#02130d"/>
+      <stop offset="100%" stop-color="#0a3d2e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#eab308" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <linearGradient id="bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e5c40"/>
+      <stop offset="100%" stop-color="#052e22"/>
+    </linearGradient>
+    <radialGradient id="dial" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#0a3d2e"/>
+      <stop offset="100%" stop-color="#02120c"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <circle cx="650" cy="100" r="170" fill="url(#glow1)"/>
+  <circle cx="130" cy="330" r="150" fill="url(#glow2)"/>
+
+  <!-- 潜水表（右） -->
+  <g transform="translate(600, 200) rotate(20)">
+    <circle cx="0" cy="0" r="125" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="0" cy="0" r="112" fill="url(#bezel)" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="95" fill="url(#dial)" stroke="url(#gold)" stroke-width="1.5"/>
+    <g fill="#d1fae5">
+      <rect x="-3" y="-90" width="6" height="10" rx="2"/>
+      <rect x="-3" y="80" width="6" height="10" rx="2"/>
+      <rect x="80" y="-3" width="10" height="6" rx="2"/>
+    </g>
+    <rect x="-34" y="-8" width="68" height="16" rx="2" fill="#0b2b1e" stroke="#10b981" stroke-width="1.5"/>
+    <polygon points="0,-60 4,-14 -4,-14" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+    <polygon points="0,-82 5,-14 -5,-14" fill="url(#gold)"/>
+    <polygon points="0,-72 4,-10 -4,-10" fill="#d1fae5" transform="rotate(140)"/>
+    <line x1="0" y1="-2" x2="0" y2="85" stroke="#10b981" stroke-width="2"/>
+    <circle cx="0" cy="0" r="5" fill="url(#gold)"/>
+  </g>
+
+  <!-- 小表盘（左） -->
+  <g transform="translate(160, 170) rotate(-10)">
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#10b981" stroke-opacity="0.6" stroke-width="2"/>
+    <circle cx="0" cy="0" r="36" fill="#021a11" stroke="#eab308" stroke-opacity="0.35" stroke-width="1.5"/>
+    <polygon points="0,-24 3.5,-8 -3.5,-8" fill="#34d399"/>
+    <polygon points="0,-18 3,-6 -3,-6" fill="#fde68a" transform="rotate(110)"/>
+    <circle cx="0" cy="0" r="4" fill="#34d399"/>
+  </g>
+  <circle cx="90" cy="320" r="6" fill="#10b981" opacity="0.5"/>
+  <circle cx="260" cy="330" r="4" fill="#eab308" opacity="0.35"/>
+  <circle cx="480" cy="80" r="5" fill="#10b981" opacity="0.4"/>
+  <circle cx="730" cy="340" r="4" fill="#eab308" opacity="0.3"/>
+</svg>

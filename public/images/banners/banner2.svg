@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="50%" stop-color="#0c0a09"/>
+      <stop offset="100%" stop-color="#292524"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#eab308" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <radialGradient id="dial" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#1a1c22"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <circle cx="680" cy="120" r="170" fill="url(#glow1)"/>
+  <circle cx="120" cy="280" r="150" fill="url(#glow2)"/>
+
+  <!-- 八角形表壳奢华手表（右） -->
+  <g transform="translate(610, 200) rotate(22)">
+    <polygon points="0,-130 92,-92 130,0 92,92 0,130 -92,92 -130,0 -92,-92" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <polygon points="0,-108 76,-76 108,0 76,76 0,108 -76,76 -108,0 -76,-76" fill="url(#dial)" stroke="url(#gold)" stroke-width="2"/>
+    <g stroke="#eab308" stroke-opacity="0.35" stroke-width="1">
+      <line x1="0" y1="-100" x2="0" y2="-120"/>
+      <line x1="0" y1="100" x2="0" y2="120"/>
+      <line x1="-100" y1="0" x2="-120" y2="0"/>
+      <line x1="100" y1="0" x2="120" y2="0"/>
+      <line x1="-70" y1="-70" x2="-84" y2="-84"/>
+      <line x1="70" y1="-70" x2="84" y2="-84"/>
+      <line x1="-70" y1="70" x2="-84" y2="84"/>
+      <line x1="70" y1="70" x2="84" y2="84"/>
+    </g>
+    <polygon points="0,-60 4,-12 -4,-12" fill="url(#gold)"/>
+    <polygon points="0,-85 5,-12 -5,-12" fill="#fde68a"/>
+    <polygon points="0,-70 4,-10 -4,-10" fill="url(#gold)" transform="rotate(200)"/>
+    <circle cx="0" cy="0" r="5.5" fill="url(#gold)"/>
+  </g>
+
+  <!-- 小型圆表盘（左） -->
+  <g transform="translate(160, 175) rotate(-15)">
+    <circle cx="0" cy="0" r="52" fill="none" stroke="url(#gold)" stroke-opacity="0.75" stroke-width="2"/>
+    <circle cx="0" cy="0" r="40" fill="#0b0b0d" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5"/>
+    <polygon points="0,-26 3.5,-9 -3.5,-9" fill="#f97316"/>
+    <polygon points="0,-33 4,-9 -4,-9" fill="#fde68a"/>
+    <circle cx="0" cy="0" r="4" fill="#f97316"/>
+    <line x1="0" y1="0" x2="26" y2="0" stroke="#f97316" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="-26" stroke="#f97316" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-20" y2="-18" stroke="#eab308" stroke-width="2"/>
+  </g>
+  <circle cx="90" cy="320" r="6" fill="#f97316" opacity="0.5"/>
+  <circle cx="260" cy="330" r="4" fill="#eab308" opacity="0.35"/>
+  <circle cx="460" cy="80" r="5" fill="#f97316" opacity="0.4"/>
+  <circle cx="740" cy="340" r="4" fill="#eab308" opacity="0.35"/>
+</svg>

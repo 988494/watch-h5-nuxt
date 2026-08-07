@@ -1,0 +1,87 @@
+{
+  "brand": "Relojes de Lujo",
+  "brandSub": "RÉPLICA PREMIUM",
+  "nav": {
+    "home": "Inicio",
+    "faq": "Preguntas",
+    "contact": "Contacto"
+  },
+  "drawer": {
+    "language": "Idioma"
+  },
+  "banner": {
+    "s1Title": "Precisión y Elegancia",
+    "s1Sub": "Elaborado por maestros relojeros",
+    "s2Title": "Lujo Atemporal",
+    "s2Sub": "El arte de la alta relojería",
+    "s3Title": "Listo para Aventura",
+    "s3Sub": "Hecho para la profundidad y más allá",
+    "s4Title": "Ingeniería Audaz",
+    "s4Sub": "Superando los límites del diseño"
+  },
+  "trust": {
+    "authentic": "Verificado",
+    "secure": "Deal Seguro",
+    "shipping": "Envío Rápido",
+    "warranty": "Garantía"
+  },
+  "section": {
+    "title": "Relojes Destacados",
+    "count": "{count} modelos"
+  },
+  "filter": {
+    "allBrands": "Todas las Marcas",
+    "allSeries": "Todas las Series"
+  },
+  "card": {
+    "view": "Ver"
+  },
+  "detail": {
+    "title": "Detalles del Producto",
+    "factory": "Réplica 1:1",
+    "save": "Ahorra {pct}%",
+    "specs": "Especificaciones",
+    "desc": "Descripción",
+    "notFound": "Producto no encontrado",
+    "back": "Volver"
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "sub": "Copie el WeChat para contactar",
+    "copyWechat": "Copiar WeChat",
+    "copyWechatTag": "Copiar",
+    "whatsapp": "WhatsApp",
+    "close": "Cerrar",
+    "copied": "ID de WeChat copiado, abra WeChat para agregar"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "ctaText": "¿Tiene más preguntas? Contacte a nuestro consultor directamente.",
+    "items": {
+      "q1": {
+        "q": "¿Son relojes genuinos?",
+        "a": "Vendemos réplicas 1:1 de alta calidad de las mejores fábricas. Cada pieza se inspecciona antes del envío."
+      },
+      "q2": {
+        "q": "¿Cómo hago un pedido?",
+        "a": "Contáctenos por WeChat o WhatsApp con el modelo que le guste. Confirmaremos stock, precio y envío."
+      },
+      "q3": {
+        "q": "¿Cuánto tarda el envío?",
+        "a": "Enviamos por mensajería rápida con seguimiento. Nacional 1-3 días; internacional unos 5-10 días."
+      },
+      "q4": {
+        "q": "¿Aceptan devoluciones?",
+        "a": "Sí. Si el reloj llega dañado o no coincide, apoyamos cambio o reembolso en un período determinado."
+      },
+      "q5": {
+        "q": "¿Tiene garantía?",
+        "a": "Cada reloj incluye soporte posventa. Si el movimiento falla, ofrecemos reparación o reemplazo."
+      },
+      "q6": {
+        "q": "¿Cómo pago?",
+        "a": "Apoyamos métodos de pago seguros. Las opciones se confirman al hacer el pedido."
+      }
+    }
+  }
+}
