@@ -201,9 +201,8 @@ input {
 .drawer {
   position: fixed;
   top: 0;
+  left: 0;
   bottom: 0;
-  /* PC 端从居中 480px 容器左缘滑出 */
-  left: calc((100vw - 480px) / 2);
   width: 78%;
   max-width: 340px;
   z-index: 210;
@@ -214,13 +213,6 @@ input {
   box-shadow: 12px 0 40px rgba(0, 0, 0, 0.6);
   transform: translateX(-100%);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* PC 端：完全移出屏幕（自身宽度 + 容器左边距） */
-@media (min-width: 481px) {
-  .drawer {
-    transform: translateX(calc(-100% - (100vw - 480px) / 2));
-  }
 }
 
 .drawer.open {
@@ -1819,9 +1811,6 @@ input {
   }
   .float-back-btn {
     left: 16px;
-  }
-  .drawer {
-    left: 0;
   }
 }
 
