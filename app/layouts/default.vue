@@ -32,6 +32,9 @@
       <slot />
 
       <div class="bottom-space" />
+
+      <!-- 浮动客服按钮（所有页面公用，点击弹联系弹窗） -->
+      <FloatingContact />
     </div>
 
     <!-- 侧边栏抽屉 -->

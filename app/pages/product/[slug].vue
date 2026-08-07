@@ -1,12 +1,5 @@
 <template>
   <div>
-    <!-- 详情导航 -->
-    <nav class="detail-nav">
-      <button class="back-btn" aria-label="back" @click="goBack">←</button>
-      <div class="nav-title">{{ title }}</div>
-    </nav>
-    <div class="detail-nav-space" />
-
     <template v-if="product">
       <!-- 图集 -->
       <div class="media-gallery">
@@ -61,14 +54,6 @@
         <p>{{ $t('detail.notFound') }}</p>
       </div>
     </template>
-
-    <div class="detail-bottom-space" />
-
-    <!-- 底部联系栏 -->
-    <div class="detail-bottom">
-      <button class="btn btn-outline" @click="openWhatsapp">{{ $t('contact.whatsapp') }}</button>
-      <button class="btn btn-gold breathe" @click="openContact">{{ $t('nav.contact') }}</button>
-    </div>
   </div>
 </template>
 
@@ -109,7 +94,6 @@ const description = computed(() => {
 })
 
 const mediaIndex = ref(0)
-const contact = useContactStore()
 
 const factoryName = computed(() => {
   return title.value.split(' ').slice(0, 2).join(' ')
@@ -117,20 +101,6 @@ const factoryName = computed(() => {
 
 function money(n: number): string {
   return n.toLocaleString('en-US')
-}
-
-function goBack() {
-  const localePath = useLocalePath()
-  navigateTo(localePath('/'))
-}
-
-function openContact() {
-  contact.open()
-}
-
-function openWhatsapp() {
-  const tel = contact.getContact().whatsapp.replace(/[^0-9]/g, '')
-  window.open(`https://wa.me/${tel}`, '_blank')
 }
 
 onMounted(() => {

@@ -1650,3 +1650,40 @@ input {
   color: #16120a;
   background: var(--gold-grad);
 }
+
+/* =========================================================
+   浮动客服按钮（所有页面公用）
+   ========================================================= */
+.float-contact-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 150;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold-grad);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: floatBounce 2.6s ease-in-out infinite;
+}
+
+.float-contact-btn:active {
+  transform: scale(0.9);
+}
+
+.float-contact-icon {
+  font-size: 24px;
+  color: #16120a;
+}
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
