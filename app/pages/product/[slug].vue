@@ -43,9 +43,10 @@
       <!-- 全屏预览层（图片放大 / 视频播放，可关闭）用 Teleport 挂到 body，脱离容器限制 -->
       <Teleport to="body">
         <transition name="fade">
-          <div v-if="previewIndex !== null" class="preview-overlay" @click="closePreview">
+          <div v-if="previewIndex !== null" class="preview-overlay" @click="onPreviewContentClick">
             <div class="preview-close" @click.stop="closePreview">✕</div>
-            <div class="preview-content" @click.stop>
+            <!-- 点击图片/视频本身不关闭；点击其周围空白区域关闭 -->
+            <div class="preview-content">
               <template v-if="media[previewIndex]?.type === 'image'">
                 <img :src="media[previewIndex].url" :alt="title" />
               </template>
@@ -151,6 +152,15 @@ function openPreview(index: number) {
 
 function closePreview() {
   previewIndex.value = null
+}
+
+// 点击预览内容：点图片/视频本身不关闭，点空白区域关闭
+function onPreviewContentClick(event: MouseEvent) {
+  const target = event.target as HTMLElement
+  const isMedia = target.tagName === 'IMG' || target.tagName === 'VIDEO'
+  if (!isMedia) {
+    closePreview()
+  }
 }
 
 definePageMeta({
