@@ -10,7 +10,7 @@
         <div class="row-icon">💬</div>
         <div>
           <div class="row-label">{{ $t('contact.copyWechat') }}</div>
-          <div class="row-value">{{ contactInfo.wechat }}</div>
+          <div class="row-value">{{ displayWechat }}</div>
         </div>
         <span class="copy-tag">{{ $t('contact.copyWechatTag') }}</span>
       </div>
@@ -19,9 +19,9 @@
         <div class="row-icon">📱</div>
         <div>
           <div class="row-label">{{ $t('contact.whatsapp') }}</div>
-          <div class="row-value">{{ contactInfo.whatsapp }}</div>
+          <div class="row-value">{{ displayWhatsapp }}</div>
         </div>
-        <span class="row-arrow">›</span>
+        <span class="wa-btn">{{ $t('contact.goWhatsapp') }}</span>
       </div>
 
       <button class="sheet-close" @click="close">{{ $t('contact.close') }}</button>
@@ -31,20 +31,24 @@
 
 <script setup lang="ts">
 const store = useContactStore()
-const { t: i18n } = useI18n()
+const { t } = useI18n()
 
 // 解构出顶层 ref，模板中自动解包
 const sheetVisible = store.sheetVisible
-const contactInfo = store.contactInfo
 const close = store.close
 
+// 显示用兜底值，避免 undefined
+const displayWechat = computed(() => store.getContact().wechat)
+const displayWhatsapp = computed(() => store.getContact().whatsapp)
+
 async function copyWechat() {
-  await store.copyText(store.contactInfo.wechat)
-  store.showToast(i18n.t('contact.copied'))
+  const wechat = store.getContact().wechat
+  await store.copyText(wechat)
+  store.showToast(t('contact.copied'))
 }
 
 function openWhatsapp() {
-  const tel = store.contactInfo.whatsapp.replace(/[^0-9]/g, '')
+  const tel = store.getContact().whatsapp.replace(/[^0-9]/g, '')
   window.open(`https://wa.me/${tel}`, '_blank')
 }
 </script>

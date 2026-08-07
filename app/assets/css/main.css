@@ -1374,9 +1374,17 @@ input {
   border-radius: 999px;
 }
 
-.sheet-row .row-arrow {
-  color: var(--text-3);
-  font-size: 14px;
+.sheet-row .wa-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #16120a;
+  background: var(--gold-grad);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+  white-space: nowrap;
 }
 
 .sheet-close {

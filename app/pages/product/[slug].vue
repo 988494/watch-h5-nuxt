@@ -128,7 +128,7 @@ function openContact() {
 }
 
 function openWhatsapp() {
-  const tel = contact.contactInfo.whatsapp.replace(/[^0-9]/g, '')
+  const tel = contact.getContact().whatsapp.replace(/[^0-9]/g, '')
   window.open(`https://wa.me/${tel}`, '_blank')
 }
 

@@ -7,11 +7,13 @@ export interface ContactInfo {
   whatsapp: string
 }
 
+const DEFAULT_CONTACT: ContactInfo = {
+  wechat: 'WatchVip8888',
+  whatsapp: '+8613800138000'
+}
+
 export function useContactStore() {
-  const contactInfo = useState<ContactInfo>('contact-info', () => ({
-    wechat: 'WatchVip8888',
-    whatsapp: '+8613800138000'
-  }))
+  const contactInfo = useState<ContactInfo>('contact-info', () => ({ ...DEFAULT_CONTACT }))
 
   const sheetVisible = useState<boolean>('contact-sheet-visible', () => false)
   const toastMsg = useState<string>('contact-toast-msg', () => '')
@@ -36,13 +38,33 @@ export function useContactStore() {
     }, 2200)
   }
 
+  /** 获取当前联系方式（带兜底，避免 undefined） */
+  function getContact(): ContactInfo {
+    const c = contactInfo.value
+    if (!c || typeof c !== 'object') return { ...DEFAULT_CONTACT }
+    return {
+      wechat: typeof c.wechat === 'string' && c.wechat ? c.wechat : DEFAULT_CONTACT.wechat,
+      whatsapp: typeof c.whatsapp === 'string' && c.whatsapp ? c.whatsapp : DEFAULT_CONTACT.whatsapp
+    }
+  }
+
+  /** 设置联系方式（可按产品覆盖） */
+  function setContact(info: Partial<ContactInfo>) {
+    const current = getContact()
+    contactInfo.value = {
+      wechat: typeof info.wechat === 'string' && info.wechat ? info.wechat : current.wechat,
+      whatsapp: typeof info.whatsapp === 'string' && info.whatsapp ? info.whatsapp : current.whatsapp
+    }
+  }
+
   async function copyText(text: string) {
+    const safe = typeof text === 'string' ? text : ''
     try {
-      await navigator.clipboard.writeText(text)
+      await navigator.clipboard.writeText(safe)
     } catch {
       // 降级方案
       const ta = document.createElement('textarea')
-      ta.value = text
+      ta.value = safe
       ta.style.position = 'fixed'
       ta.style.opacity = '0'
       document.body.appendChild(ta)
@@ -60,6 +82,8 @@ export function useContactStore() {
     open,
     close,
     showToast,
-    copyText
+    copyText,
+    getContact,
+    setContact
   }
 }
