@@ -2,6 +2,16 @@
   <div>
     <div class="h5-enclosure">
       <header class="topbar">
+        <!-- 返回箭头（页面通过 showBack meta 控制显示） -->
+        <button
+          v-if="showBack"
+          class="back-arrow-btn"
+          aria-label="back"
+          @click="goBack"
+        >
+          ←
+        </button>
+
         <!-- 汉堡菜单按钮 -->
         <button class="hamburger" aria-label="menu" @click="menuOpen = true">
           <span class="hamburger-line" />
@@ -91,6 +101,19 @@ const contact = useContactStore()
 
 const menuOpen = ref(false)
 const currentLocale = computed(() => locale.value)
+
+// 是否显示返回箭头（由页面 definePageMeta 的 showBack 控制）
+const showBack = computed(() => Boolean(route.meta.showBack))
+
+function goBack() {
+  // 返回上一页（整页跳转保证数据完整）
+  if (window.history.length > 1) {
+    window.history.back()
+  } else {
+    const localePathFn = useLocalePath()
+    window.location.href = localePathFn('/')
+  }
+}
 
 function isActive(path: string): boolean {
   // 用当前语言的路径比较（prefix 策略下所有语言都有前缀）

@@ -157,6 +157,25 @@ input {
   transition: transform 0.2s;
 }
 
+/* 返回箭头按钮（详情页等页面显示） */
+.back-arrow-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--gold-light);
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.back-arrow-btn:active {
+  transform: scale(0.92);
+}
+
 .hamburger:active {
   transform: scale(0.92);
 }

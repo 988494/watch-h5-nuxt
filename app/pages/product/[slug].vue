@@ -114,6 +114,7 @@ onMounted(() => {
 })
 
 definePageMeta({
-  name: 'product-detail'
+  name: 'product-detail',
+  showBack: true
 })
 </script>
