@@ -4,14 +4,10 @@
     <FloatingBack />
 
     <template v-if="product">
-      <!-- 封面图（无边框，价格/厂牌标签叠加） -->
+      <!-- 封面图（无边框，仅价格浮动叠加） -->
       <div class="detail-cover">
         <img :src="coverUrl" :alt="title" />
         <div class="cover-overlay">
-          <div class="cover-factory">
-            <span class="factory-pill">{{ factoryName }}</span>
-            <span class="factory-pill">{{ $t('detail.factory') }}</span>
-          </div>
           <div class="cover-price-row">
             <span class="cover-price"><span class="rmb">$</span>{{ money(product.price) }}</span>
             <span class="cover-currency">USD</span>
@@ -19,8 +15,12 @@
         </div>
       </div>
 
-      <!-- 标题区 -->
+      <!-- 标题区（厂牌标签 + 标题） -->
       <div class="detail-title-block">
+        <div class="cover-factory">
+          <span class="factory-pill">{{ factoryName }}</span>
+          <span class="factory-pill">{{ $t('detail.factory') }}</span>
+        </div>
         <h1 class="detail-title">{{ title }}</h1>
       </div>
 

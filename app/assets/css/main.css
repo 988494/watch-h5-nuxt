@@ -984,8 +984,8 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 40px 16px 14px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  padding: 24px 16px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .cover-factory {
