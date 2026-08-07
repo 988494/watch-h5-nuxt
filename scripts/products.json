@@ -5,6 +5,10 @@
     "price": 399,
     "price_original": 12500,
     "cover": "/images/rolex-submariner.svg",
+    "media": {
+      "images": "/images/rolex-submariner.svg,/images/rolex-submariner.svg",
+      "videos": "/videos/rolex-submariner.mp4"
+    },
     "title": {
       "zh": "劳力士潜航者型 绿水鬼 116610LV 3135一体机芯",
       "en": "Rolex Submariner Green 116610LV 3135 Movement",

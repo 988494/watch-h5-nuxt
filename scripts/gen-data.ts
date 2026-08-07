@@ -27,6 +27,11 @@ interface MockProduct {
   title: LText
   description: LText
   specs: Record<LangCode, Record<string, string>>
+  /** 媒体资源：图片/视频 URL，多个用逗号分隔 */
+  media?: {
+    images?: string
+    videos?: string
+  }
 }
 
 /** 读取 JSON 数据文件 */
@@ -117,9 +122,32 @@ function seed(): void {
     )
     const pid = Number(info.lastInsertRowid)
 
-    // 图集：主图 + 细节图（后续可替换为产品真实图片目录）
-    insMedia.run(pid, 'image', p.cover, 0)
-    insMedia.run(pid, 'image', p.cover, 1)
+    // 图集：解析 media 字段（逗号分隔），图片 + 视频
+    // 无 media 时回退为主图
+    const images = (p.media?.images || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean)
+    const videos = (p.media?.videos || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean)
+
+    let sort = 0
+    if (images.length) {
+      for (const url of images) {
+        insMedia.run(pid, 'image', url, sort++)
+      }
+    }
+    if (videos.length) {
+      for (const url of videos) {
+        insMedia.run(pid, 'video', url, sort++)
+      }
+    }
+    // 没有任何 media 时，用 cover 作为唯一主图
+    if (!images.length && !videos.length) {
+      insMedia.run(pid, 'image', p.cover, 0)
+    }
   }
 
   console.log(`✅ 分类: ${db.prepare('SELECT COUNT(*) as n FROM categories').get().n}`)

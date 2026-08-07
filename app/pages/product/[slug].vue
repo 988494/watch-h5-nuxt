@@ -9,8 +9,8 @@
         <div class="swiper" id="media-swiper">
           <div class="swiper-wrapper">
             <div v-for="(m, i) in media" :key="i" class="swiper-slide">
-              <img v-if="m.type === 'image'" :src="m.url" :alt="title" />
-              <video v-else :src="m.url" muted loop playsinline />
+              <img v-if="m.type === 'image'" :src="m.url" :alt="title" loading="lazy" />
+              <video v-else :src="m.url" controls muted loop playsinline preload="metadata" />
             </div>
           </div>
         </div>
