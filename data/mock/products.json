@@ -1,0 +1,198 @@
+[
+  {
+    "slug": "rolex-submariner-green",
+    "category": "submariner",
+    "price": 399,
+    "price_original": 12500,
+    "cover": "/images/rolex-submariner.svg",
+    "title": {
+      "zh": "劳力士潜航者型 绿水鬼 116610LV 3135一体机芯",
+      "en": "Rolex Submariner Green 116610LV 3135 Movement",
+      "es": "Rolex Submariner Verde 116610LV Movimiento 3135",
+      "fr": "Rolex Submariner Verte 116610LV Calibre 3135",
+      "ar": "رولكس سابمارينر أخضر 116610LV حركة 3135"
+    },
+    "description": {
+      "zh": "VS厂巅峰之作，绿水鬼，原装开模，904L精钢，陶瓷圈口，配全套专柜包装。",
+      "en": "Top-tier replica of the Green Submariner, factory-grade 904L steel, ceramic bezel, full retail packaging.",
+      "es": "Réplica de primer nivel del Submariner verde, acero 904L, bisel de cerámica, embalaje completo.",
+      "fr": "Réplique haut de gamme de la Submariner verte, acier 904L, lunette céramique, emballage complet.",
+      "ar": "نسخة عالية الجودة من سابمارينر الخضراء، فولاذ 904L، إطار سيراميك، تغليف كامل."
+    },
+    "specs": {
+      "zh": { "机芯": "3135一体机芯", "表径": "40mm", "材质": "904L精钢", "表镜": "蓝宝石", "防水": "100米" },
+      "en": { "Movement": "3135 Calibre", "Case": "40mm", "Material": "904L Steel", "Crystal": "Sapphire", "Water": "100m" },
+      "es": { "Movimiento": "Calibre 3135", "Caja": "40mm", "Material": "Acero 904L", "Cristal": "Zafiro", "Agua": "100m" },
+      "fr": { "Calibre": "3135", "Boîtier": "40mm", "Matériau": "Acier 904L", "Verre": "Saphir", "Eau": "100m" },
+      "ar": { "الحركة": "3135", "المقاس": "40مم", "الخامة": "فولاذ 904L", "الزجاج": "ياقوت", "مقاومة الماء": "100م" }
+    }
+  },
+  {
+    "slug": "rolex-daytona-panda",
+    "category": "daytona",
+    "price": 449,
+    "price_original": 15800,
+    "cover": "/images/omega-speedmaster.svg",
+    "title": {
+      "zh": "劳力士迪通拿 熊猫盘 116500 4130一体机芯",
+      "en": "Rolex Daytona Panda 116500 4130 Movement",
+      "es": "Rolex Daytona Panda 116500 Movimiento 4130",
+      "fr": "Rolex Daytona Panda 116500 Calibre 4130",
+      "ar": "رولكس دايتونا باندا 116500 حركة 4130"
+    },
+    "description": {
+      "zh": "C厂顶级迪通拿，黑白熊猫盘，4130一体机芯，计时功能与专柜一致。",
+      "en": "Top-tier Daytona Panda, black/white dial, 4130 integrated movement, chronograph works like genuine.",
+      "es": "Daytona Panda de primera, esfera blanco/negro, movimiento integrado 4130.",
+      "fr": "Daytona Panda haut de gamme, cadran noir/blanc, calibre intégré 4130.",
+      "ar": "دايتونا باندا عالية الجودة، وجه أسود/أبيض، حركة مدمجة 4130."
+    },
+    "specs": {
+      "zh": { "机芯": "4130一体机芯", "表径": "40mm", "材质": "904L精钢", "功能": "计时码表" },
+      "en": { "Movement": "4130", "Case": "40mm", "Material": "904L Steel", "Function": "Chronograph" },
+      "es": { "Movimiento": "4130", "Caja": "40mm", "Material": "Acero 904L", "Función": "Cronógrafo" },
+      "fr": { "Calibre": "4130", "Boîtier": "40mm", "Matériau": "Acier 904L", "Fonction": "Chronographe" },
+      "ar": { "الحركة": "4130", "المقاس": "40مم", "الخامة": "فولاذ 904L", "الوظيفة": "كرونوغراف" }
+    }
+  },
+  {
+    "slug": "patek-nautilus-5711",
+    "category": "nautilus",
+    "price": 499,
+    "price_original": 32000,
+    "cover": "/images/patek-nautilus.svg",
+    "title": {
+      "zh": "百达翡丽鹦鹉螺 5711/1A 蓝盘",
+      "en": "Patek Philippe Nautilus 5711/1A Blue Dial",
+      "es": "Patek Philippe Nautilus 5711/1A Esfera Azul",
+      "fr": "Patek Philippe Nautilus 5711/1A Cadran Bleu",
+      "ar": "باتيك فيليب نوتيلوس 5711/1A وجه أزرق"
+    },
+    "description": {
+      "zh": "PPF厂V4升级版，超薄钢王，一体化机芯，渐变蓝盘。",
+      "en": "PPF V4 upgraded, ultra-thin steel king, integrated movement, gradient blue dial.",
+      "es": "PPF V4 mejorado, rey del acero ultradelgado, movimiento integrado, esfera azul degradado.",
+      "fr": "PPF V4 amélioré, roi de l'acier ultra-mince, mouvement intégré, cadran bleu dégradé.",
+      "ar": "إصدار PPF V4، ملك الفولاذ فائق النحافة، حركة مدمجة، وجه أزرق متدرج."
+    },
+    "specs": {
+      "zh": { "机芯": "324SC一体机芯", "表径": "40mm", "厚度": "8.3mm", "表带": "一体钢带" },
+      "en": { "Movement": "324SC", "Case": "40mm", "Thickness": "8.3mm", "Bracelet": "Integrated Steel" },
+      "es": { "Movimiento": "324SC", "Caja": "40mm", "Grosor": "8.3mm", "Pulsera": "Acero integrado" },
+      "fr": { "Calibre": "324SC", "Boîtier": "40mm", "Épaisseur": "8.3mm", "Bracelet": "Acier intégré" },
+      "ar": { "الحركة": "324SC", "المقاس": "40مم", "السماكة": "8.3مم", "السوار": "فولاذ مدمج" }
+    }
+  },
+  {
+    "slug": "ap-royal-oak-15500",
+    "category": "royaloak",
+    "price": 469,
+    "price_original": 19000,
+    "cover": "/images/ap-royaloak.svg",
+    "title": {
+      "zh": "爱彼皇家橡树 15500 玫瑰金",
+      "en": "Audemars Piguet Royal Oak 15500 Rose Gold",
+      "es": "Audemars Piguet Royal Oak 15500 Oro Rosa",
+      "fr": "Audemars Piguet Royal Oak 15500 Or Rose",
+      "ar": "أوديمار بيغه رويال أوك 15500 ذهب وردي"
+    },
+    "description": {
+      "zh": "ZF厂皇牌大作，八角表圈，玫瑰金电镀，大格纹表盘。",
+      "en": "ZF masterpiece, octagonal bezel, rose gold plating, Grand Tapisserie dial.",
+      "es": "Obra maestra de ZF, bisel octogonal, oro rosa, esfera Tapisserie.",
+      "fr": "Chef-d'œuvre ZF, lunette octogonale, or rose, cadran Tapisserie.",
+      "ar": "تحفة ZF، إطار مثمن، ذهب وردي، وجه نسيجي."
+    },
+    "specs": {
+      "zh": { "机芯": "4302一体机芯", "表径": "41mm", "表圈": "八角形", "材质": "精钢镀玫瑰金" },
+      "en": { "Movement": "4302", "Case": "41mm", "Bezel": "Octagonal", "Material": "Steel/Rose Gold" },
+      "es": { "Movimiento": "4302", "Caja": "41mm", "Bisel": "Octogonal", "Material": "Acero/Oro" },
+      "fr": { "Calibre": "4302", "Boîtier": "41mm", "Lunette": "Octogonale", "Matériau": "Acier/Or" },
+      "ar": { "الحركة": "4302", "المقاس": "41مم", "الإطار": "مثمن", "الخامة": "فولاذ/ذهب" }
+    }
+  },
+  {
+    "slug": "omega-speedmaster-moon",
+    "category": "speedmaster",
+    "price": 349,
+    "price_original": 9200,
+    "cover": "/images/omega-speedmaster.svg",
+    "title": {
+      "zh": "欧米茄超霸 月球表 专业计时",
+      "en": "Omega Speedmaster Moonwatch Professional",
+      "es": "Omega Speedmaster Moonwatch Profesional",
+      "fr": "Omega Speedmaster Moonwatch Professionnelle",
+      "ar": "أوميغا سبيد ماستر موون ووتش"
+    },
+    "description": {
+      "zh": "OM厂经典月球表，三眼计时盘，测速刻度，硬汉必备。",
+      "en": "Classic Moonwatch, triple-register chronograph, tachymeter bezel.",
+      "es": "Moonwatch clásico, cronógrafo de tres subesferas.",
+      "fr": "Moonwatch classique, chronographe triple compteur.",
+      "ar": "كلاسيكية موون ووتش، كرونوغراف ثلاثي."
+    },
+    "specs": {
+      "zh": { "机芯": "计时机械机芯", "表径": "42mm", "表盘": "三眼", "材质": "精钢" },
+      "en": { "Movement": "Chronograph", "Case": "42mm", "Dial": "Triple", "Material": "Steel" },
+      "es": { "Movimiento": "Cronógrafo", "Caja": "42mm", "Esfera": "Triple", "Material": "Acero" },
+      "fr": { "Calibre": "Chrono", "Boîtier": "42mm", "Cadran": "Triple", "Matériau": "Acier" },
+      "ar": { "الحركة": "كرونوغراف", "المقاس": "42مم", "الوجه": "ثلاثي", "الخامة": "فولاذ" }
+    }
+  },
+  {
+    "slug": "richard-mille-rm35",
+    "category": "rm35",
+    "price": 799,
+    "price_original": 98000,
+    "cover": "/images/richard-mille.svg",
+    "title": {
+      "zh": "理查米尔 RM35-02 拉斐尔纳达尔 碳纤维镂空",
+      "en": "Richard Mille RM35-02 Rafael Nadal Carbon Skeleton",
+      "es": "Richard Mille RM35-02 Rafael Nadal Carbono Esqueleto",
+      "fr": "Richard Mille RM35-02 Rafael Nadal Carbone Squelette",
+      "ar": "ريتشارد ميل RM35-02 كربون مكشوف"
+    },
+    "description": {
+      "zh": "KV厂碳纤维酒桶造型，全镂空机芯，轻若无物，霸气十足。",
+      "en": "KV carbon tonneau case, fully skeletonized movement, feather-light.",
+      "es": "Caja tonel de carbono, movimiento esqueletizado, ultraligero.",
+      "fr": "Boîtier tonneau carbone, mouvement squeletté, ultra-léger.",
+      "ar": "هيكل كربون، حركة مكشوفة، خفيف جداً."
+    },
+    "specs": {
+      "zh": { "机芯": "镂空自动机芯", "表壳": "碳纤维", "尺寸": "49.94x44.5mm", "表镜": "蓝宝石" },
+      "en": { "Movement": "Skeleton Auto", "Case": "Carbon", "Size": "49.94x44.5mm", "Crystal": "Sapphire" },
+      "es": { "Movimiento": "Auto Esqueleto", "Caja": "Carbono", "Tamaño": "49.94x44.5mm", "Cristal": "Zafiro" },
+      "fr": { "Calibre": "Auto Squelette", "Boîtier": "Carbone", "Taille": "49.94x44.5mm", "Verre": "Saphir" },
+      "ar": { "الحركة": "أوتوماتيك مكشوفة", "الخامة": "كربون", "المقاس": "49.94x44.5مم", "الزجاج": "ياقوت" }
+    }
+  },
+  {
+    "slug": "cartier-santos-medium",
+    "category": "santos",
+    "price": 329,
+    "price_original": 8400,
+    "cover": "/images/cartier-santos.svg",
+    "title": {
+      "zh": "卡地亚山度士 中号 间金方形",
+      "en": "Cartier Santos Medium Two-Tone",
+      "es": "Cartier Santos Mediana Bicolor",
+      "fr": "Cartier Santos Moyenne Bicolore",
+      "ar": "كارتييه سانتوس وسط ذهبي"
+    },
+    "description": {
+      "zh": "V6厂经典方形表壳，罗马字面，蓝色宝石表冠，优雅永不过时。",
+      "en": "V6 classic square case, Roman numerals, blue sapphire crown.",
+      "es": "V6 caja cuadrada clásica, numerales romanos, corona zafiro azul.",
+      "fr": "V6 boîtier carré classique, chiffres romains, couronne saphir bleu.",
+      "ar": "V6 مربع كلاسيكي، أرقام رومانية، تاج ياقوت أزرق."
+    },
+    "specs": {
+      "zh": { "机芯": "9015自动机芯", "表径": "35mm", "表盘": "方形罗马字", "材质": "精钢间金" },
+      "en": { "Movement": "9015 Auto", "Case": "35mm", "Dial": "Square Roman", "Material": "Steel/Gold" },
+      "es": { "Movimiento": "9015 Auto", "Caja": "35mm", "Esfera": "Cuadrada", "Material": "Acero/Oro" },
+      "fr": { "Calibre": "9015 Auto", "Boîtier": "35mm", "Cadran": "Carré", "Matériau": "Acier/Or" },
+      "ar": { "الحركة": "9015 أوتو", "المقاس": "35مم", "الوجه": "مربع", "الخامة": "فولاذ/ذهب" }
+    }
+  }
+]
