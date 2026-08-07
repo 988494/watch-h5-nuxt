@@ -1763,7 +1763,7 @@ input {
    ========================================================= */
 .float-contact-btn {
   position: fixed;
-  right: 20px;
+  right: calc((100vw - 480px) / 2 + 20px);
   bottom: 24px;
   z-index: 150;
   width: 56px;
@@ -1782,7 +1782,7 @@ input {
    ========================================================= */
 .float-back-btn {
   position: fixed;
-  left: 16px;
+  left: calc((100vw - 480px) / 2 + 16px);
   top: 78px; /* 避开顶部 topbar 高度 */
   z-index: 140;
   width: 40px;
@@ -1802,6 +1802,16 @@ input {
 
 .float-back-btn:active {
   transform: scale(0.9);
+}
+
+/* 移动端：浮动按钮贴视口边缘 */
+@media (max-width: 480px) {
+  .float-contact-btn {
+    right: 20px;
+  }
+  .float-back-btn {
+    left: 16px;
+  }
 }
 
 .float-contact-btn:active {
