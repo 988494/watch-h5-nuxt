@@ -94,6 +94,11 @@ export default defineNuxtConfig({
         '/es/faq',
         '/fr/faq',
         '/ar/faq',
+        '/en/about',
+        '/zh/about',
+        '/es/about',
+        '/fr/about',
+        '/ar/about',
         ...getDynamicRoutes()
       ]
     }

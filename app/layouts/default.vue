@@ -66,6 +66,14 @@
           <span class="drawer-nav-icon">❓</span>
           <span>{{ $t('nav.faq') }}</span>
         </button>
+        <button
+          class="drawer-nav-item"
+          :class="{ active: isActive('/about') }"
+          @click="go('/about')"
+        >
+          <span class="drawer-nav-icon">ℹ️</span>
+          <span>{{ $t('nav.about') }}</span>
+        </button>
       </nav>
     </aside>
 

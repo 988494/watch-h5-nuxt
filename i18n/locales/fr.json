@@ -4,6 +4,7 @@
   "nav": {
     "home": "Accueil",
     "faq": "FAQ",
+    "about": "À Propos",
     "contact": "Contact"
   },
   "drawer": {
@@ -84,5 +85,18 @@
         "a": "Nous soutenons des méthodes de paiement sécurisées. Les options sont confirmées à la commande."
       }
     }
+  },
+  "about": {
+    "title": "À Propos",
+    "introTitle": "Notre Histoire",
+    "introText": "Nous sommes une équipe passionnée d'horlogerie fine. Nous sélectionnons des répliques 1:1 des meilleures usines, chaque pièce répondant à nos normes strictes avant de vous parvenir. Notre objectif : des montres premium à des prix accessibles.",
+    "whyTitle": "Pourquoi Nous Choisir",
+    "points": {
+      "1": { "title": "Qualité Garantie", "desc": "Chaque montre est inspectée avant expédition." },
+      "2": { "title": "Transaction Sûre", "desc": "Des paiements sécurisés protègent votre achat." },
+      "3": { "title": "Livraison Rapide", "desc": "Expédition express avec suivi jusqu'à votre porte." },
+      "4": { "title": "Service Après-vente", "desc": "Nous assurons un service réactif." }
+    },
+    "ctaText": "Envie d'en savoir plus ? Contactez notre consultant."
   }
 }

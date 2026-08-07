@@ -4,6 +4,7 @@
   "nav": {
     "home": "Inicio",
     "faq": "Preguntas",
+    "about": "Sobre Nosotros",
     "contact": "Contacto"
   },
   "drawer": {
@@ -84,5 +85,18 @@
         "a": "Apoyamos métodos de pago seguros. Las opciones se confirman al hacer el pedido."
       }
     }
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "introTitle": "Nuestra Historia",
+    "introText": "Somos un equipo apasionado por la relojería fina. Seleccionamos réplicas 1:1 de las mejores fábricas, asegurando que cada pieza cumpla nuestros estrictos estándares antes de llegar a usted. Nuestro objetivo es ofrecer relojes premium a precios accesibles.",
+    "whyTitle": "Por Qué Elegirnos",
+    "points": {
+      "1": { "title": "Calidad Garantizada", "desc": "Cada reloj se inspecciona antes del envío." },
+      "2": { "title": "Transacción Segura", "desc": "Métodos de pago seguros protegen su compra." },
+      "3": { "title": "Envío Rápido", "desc": "Entrega exprés con seguimiento hasta su puerta." },
+      "4": { "title": "Soporte Posventa", "desc": "Respondemos con un servicio atento." }
+    },
+    "ctaText": "¿Quiere saber más? Contacte a nuestro consultor."
   }
 }

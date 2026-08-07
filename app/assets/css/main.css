@@ -1759,6 +1759,75 @@ input {
 }
 
 /* =========================================================
+   关于我们页面
+   ========================================================= */
+.about-section {
+  margin: 0 16px 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px;
+}
+
+.about-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-section h3 .icon {
+  color: var(--gold);
+  font-size: 16px;
+}
+
+.about-section p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-2);
+  text-align: justify;
+}
+
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-point {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.about-point-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.about-point-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.about-point-desc {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+
+/* =========================================================
    浮动客服按钮（所有页面公用）
    ========================================================= */
 .float-contact-btn {

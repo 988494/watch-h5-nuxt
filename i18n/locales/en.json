@@ -4,6 +4,7 @@
   "nav": {
     "home": "Home",
     "faq": "FAQ",
+    "about": "About Us",
     "contact": "Contact"
   },
   "drawer": {
@@ -84,5 +85,18 @@
         "a": "We support secure payment methods. Specific options are confirmed by our consultant when you place the order."
       }
     }
+  },
+  "about": {
+    "title": "About Us",
+    "introTitle": "Our Story",
+    "introText": "We are a team passionate about fine watchmaking. We source the finest 1:1 replica watches from top factories, ensuring every piece meets our strict quality standards before it reaches you. Our goal is to provide premium timepieces at accessible prices.",
+    "whyTitle": "Why Choose Us",
+    "points": {
+      "1": { "title": "Quality Assured", "desc": "Every watch is inspected before shipment to guarantee quality." },
+      "2": { "title": "Secure Trading", "desc": "Safe payment methods protect your purchase." },
+      "3": { "title": "Fast Shipping", "desc": "Quick express delivery with tracking to your door." },
+      "4": { "title": "After-sales Support", "desc": "We stand behind our products with responsive service." }
+    },
+    "ctaText": "Want to know more? Contact our consultant."
   }
 }
