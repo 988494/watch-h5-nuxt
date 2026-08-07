@@ -37,6 +37,8 @@ function money(n: number): string {
 }
 
 function goDetail() {
-  navigateTo(`/product/${props.product.slug}`)
+  // 使用 localePath 生成带语言前缀的路径（prefix 策略下所有语言都有前缀）
+  const localePath = useLocalePath()
+  navigateTo(localePath(`/product/${props.product.slug}`))
 }
 </script>

@@ -120,7 +120,8 @@ function money(n: number): string {
 }
 
 function goBack() {
-  navigateTo('/')
+  const localePath = useLocalePath()
+  navigateTo(localePath('/'))
 }
 
 function openContact() {

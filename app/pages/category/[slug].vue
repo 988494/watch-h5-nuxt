@@ -113,10 +113,12 @@ const filteredProducts = computed(() => {
 })
 
 function goBack() {
-  navigateTo('/')
+  const localePath = useLocalePath()
+  navigateTo(localePath('/'))
 }
 
 function navigateToSeries(seriesSlug: string) {
-  navigateTo(`/category/${seriesSlug}`)
+  const localePath = useLocalePath()
+  navigateTo(localePath(`/category/${seriesSlug}`))
 }
 </script>
