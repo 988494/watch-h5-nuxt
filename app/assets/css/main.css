@@ -216,6 +216,13 @@ input {
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* PC 端：完全移出屏幕（自身宽度 + 容器左边距） */
+@media (min-width: 481px) {
+  .drawer {
+    transform: translateX(calc(-100% - (100vw - 480px) / 2));
+  }
+}
+
 .drawer.open {
   transform: translateX(0);
 }
