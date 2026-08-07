@@ -40,25 +40,27 @@
         </div>
       </div>
 
-      <!-- 全屏预览层（图片放大 / 视频播放，可关闭） -->
-      <transition name="fade">
-        <div v-if="previewIndex !== null" class="preview-overlay" @click="closePreview">
-          <div class="preview-close" @click.stop="closePreview">✕</div>
-          <div class="preview-content" @click.stop>
-            <template v-if="media[previewIndex]?.type === 'image'">
-              <img :src="media[previewIndex].url" :alt="title" />
-            </template>
-            <template v-else>
-              <video
-                :src="media[previewIndex]?.url"
-                controls
-                autoplay
-                playsinline
-              />
-            </template>
+      <!-- 全屏预览层（图片放大 / 视频播放，可关闭）用 Teleport 挂到 body，脱离容器限制 -->
+      <Teleport to="body">
+        <transition name="fade">
+          <div v-if="previewIndex !== null" class="preview-overlay" @click="closePreview">
+            <div class="preview-close" @click.stop="closePreview">✕</div>
+            <div class="preview-content" @click.stop>
+              <template v-if="media[previewIndex]?.type === 'image'">
+                <img :src="media[previewIndex].url" :alt="title" />
+              </template>
+              <template v-else>
+                <video
+                  :src="media[previewIndex]?.url"
+                  controls
+                  autoplay
+                  playsinline
+                />
+              </template>
+            </div>
           </div>
-        </div>
-      </transition>
+        </transition>
+      </Teleport>
 
       <!-- 参数 -->
       <section class="spec-section">

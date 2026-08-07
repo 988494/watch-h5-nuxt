@@ -134,14 +134,15 @@ function seed(): void {
       .filter(Boolean)
 
     let sort = 0
-    if (images.length) {
-      for (const url of images) {
-        insMedia.run(pid, 'image', url, sort++)
-      }
-    }
+    // 视频放在最前面
     if (videos.length) {
       for (const url of videos) {
         insMedia.run(pid, 'video', url, sort++)
+      }
+    }
+    if (images.length) {
+      for (const url of images) {
+        insMedia.run(pid, 'image', url, sort++)
       }
     }
     // 没有任何 media 时，用 cover 作为唯一主图
