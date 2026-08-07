@@ -1,7 +1,7 @@
 /**
  * gen-data.ts — 从 JSON 数据文件生成数据写入 SQLite
  * 用法：npm run gen:data（或 npx tsx scripts/gen-data.ts）
- * 数据源：data/mock/categories.json + data/mock/products.json
+ * 数据源：scripts/categories.json + scripts/products.json
  * 可重复执行（每次先清空旧数据再重建）
  */
 import fs from 'node:fs'
@@ -31,7 +31,7 @@ interface MockProduct {
 
 /** 读取 JSON 数据文件 */
 function loadJson<T>(file: string): T {
-  const p = path.resolve(process.cwd(), 'data', 'mock', file)
+  const p = path.resolve(process.cwd(), 'scripts', file)
   const raw = fs.readFileSync(p, 'utf-8')
   return JSON.parse(raw) as T
 }
