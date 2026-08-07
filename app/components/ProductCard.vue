@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Product } from '../../types'
-import type { LangCode } from '../../types'
+import type { Product } from '@/types'
+import type { LangCode } from '@/types'
 
 const props = defineProps<{ product: Product; lang: LangCode }>()
 

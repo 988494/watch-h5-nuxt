@@ -73,8 +73,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Product, ProductMedia, SpecsMap } from '../../../types'
-import { DEFAULT_LANG, type LangCode } from '../../../types'
+import type { Product, ProductMedia, SpecsMap } from '@/types'
+import { DEFAULT_LANG, type LangCode } from '@/types'
 
 // SSG：构建时生成每个产品静态页
 const route = useRoute()
@@ -89,7 +89,7 @@ const media = useState<ProductMedia[]>(`media-${slug}-${lang}`, () => [])
 const specs = useState<SpecsMap>(`specs-${slug}-${lang}`, () => ({}))
 
 if (import.meta.server) {
-  const { getProductBySlug, getProductMedia, parseSpecs } = await import('../../../server/db/products')
+  const { getProductBySlug, getProductMedia, parseSpecs } = await import('@/server/db/products')
   const p = getProductBySlug(slug) || null
   product.value = p
   if (p) {

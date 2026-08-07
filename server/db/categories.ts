@@ -1,8 +1,8 @@
 /**
  * 分类查询（构建期使用）
  */
-import type { Category, CategoryOption, LangCode } from '../../types'
-import { getDb } from './index'
+import type { Category, CategoryOption, LangCode } from '@/types'
+import { getDb } from '@/server/db/index'
 
 /** 读取全部分类（含父子层级） */
 export function getAllCategories(): Category[] {

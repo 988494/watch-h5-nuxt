@@ -52,8 +52,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Category, CategoryOption, Product } from '../../../types'
-import { DEFAULT_LANG, type LangCode } from '../../../types'
+import type { Category, CategoryOption, Product } from '@/types'
+import { DEFAULT_LANG, type LangCode } from '@/types'
 
 // SSG：构建时生成每个分类静态页
 const route = useRoute()
@@ -69,8 +69,8 @@ const categoryTree = useState<CategoryOption[]>(`categoryTree-${slug}-${lang}`, 
 const allProducts = useState<Product[]>(`allProducts-${slug}-${lang}`, () => [])
 
 if (import.meta.server) {
-  const catMod = await import('../../../server/db/categories')
-  const prodMod = await import('../../../server/db/products')
+  const catMod = await import('@/server/db/categories')
+  const prodMod = await import('@/server/db/products')
   category.value = catMod.getCategoryBySlug(slug)
   allCategories.value = catMod.getAllCategories()
   categoryTree.value = catMod.getCategoryTree(lang)

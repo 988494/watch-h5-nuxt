@@ -1,8 +1,8 @@
 /**
  * 产品查询（构建期使用）
  */
-import type { Product, ProductMedia, SpecsMap } from '../../types'
-import { getDb } from './index'
+import type { Product, ProductMedia, SpecsMap } from '@/types'
+import { getDb } from '@/server/db/index'
 
 /** 读取全部产品 */
 export function getAllProducts(): Product[] {

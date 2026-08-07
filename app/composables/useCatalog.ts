@@ -3,14 +3,14 @@
  * 使用 useAsyncData：每个路由渲染时独立执行，避免跨路由状态污染
  * useAsyncData 返回值可 await，SSR/SSG 会等待数据就绪后再渲染
  */
-import type { CategoryOption, Product } from '../../types'
-import { DEFAULT_LANG, type LangCode } from '../../types'
+import type { CategoryOption, Product } from '@/types'
+import { DEFAULT_LANG, type LangCode } from '@/types'
 
 export function useHomeData(lang: LangCode = DEFAULT_LANG) {
   const categories = useAsyncData<CategoryOption[]>(
     `home-categories-${lang}`,
     async () => {
-      const { getCategoryTree } = await import('../../server/db/categories')
+      const { getCategoryTree } = await import('@/server/db/categories')
       return getCategoryTree(lang)
     }
   )
@@ -18,7 +18,7 @@ export function useHomeData(lang: LangCode = DEFAULT_LANG) {
   const products = useAsyncData<Product[]>(
     `home-products-${lang}`,
     async () => {
-      const { getAllProducts } = await import('../../server/db/products')
+      const { getAllProducts } = await import('@/server/db/products')
       return getAllProducts()
     }
   )

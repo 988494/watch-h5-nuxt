@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // 从 SQLite 枚举所有产品/分类 slug（构建期生成静态页路由）
 function getDynamicRoutes(): string[] {
@@ -28,6 +29,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   ssr: true,
+
+  // @ 别名指向项目根目录，替代所有 ../ 相对路径
+  // （~/ 仍指向 app/，是 Nuxt 约定，保持不变）
+  alias: {
+    '@': fileURLToPath(new URL('.', import.meta.url))
+  },
 
   app: {
     head: {

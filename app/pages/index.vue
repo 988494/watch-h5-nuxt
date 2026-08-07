@@ -72,9 +72,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Product, CategoryOption } from '../../types'
-import { DEFAULT_LANG } from '../../types'
-import type { LangCode } from '../../types'
+import type { Product, CategoryOption } from '@/types'
+import { DEFAULT_LANG } from '@/types'
+import type { LangCode } from '@/types'
 
 const { locale } = useI18n()
 const lang = (locale.value || DEFAULT_LANG) as LangCode
@@ -85,7 +85,7 @@ const categoryList = useState<CategoryOption[]>(`home-categories-${lang}`, () =>
 const productList = useState<Product[]>(`home-products-${lang}`, () => [])
 
 if (import.meta.server) {
-  const { getHomeData } = await import('../../server/utils/home')
+  const { getHomeData } = await import('@/server/utils/home')
   const data = getHomeData(lang)
   categoryList.value = data.categories
   productList.value = data.products
