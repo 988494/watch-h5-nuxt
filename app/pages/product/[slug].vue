@@ -4,31 +4,61 @@
     <FloatingBack />
 
     <template v-if="product">
-      <!-- 图集 -->
-      <div class="media-gallery">
-        <div class="swiper" id="media-swiper">
-          <div class="swiper-wrapper">
-            <div v-for="(m, i) in media" :key="i" class="swiper-slide">
-              <img v-if="m.type === 'image'" :src="m.url" :alt="title" loading="lazy" />
-              <video v-else :src="m.url" controls muted loop playsinline preload="metadata" />
-            </div>
+      <!-- 封面图（无边框，价格/厂牌标签叠加） -->
+      <div class="detail-cover">
+        <img :src="coverUrl" :alt="title" />
+        <div class="cover-overlay">
+          <div class="cover-factory">
+            <span class="factory-pill">{{ factoryName }}</span>
+            <span class="factory-pill">{{ $t('detail.factory') }}</span>
+          </div>
+          <div class="cover-price-row">
+            <span class="cover-price"><span class="rmb">$</span>{{ money(product.price) }}</span>
+            <span class="cover-currency">USD</span>
           </div>
         </div>
-        <div class="media-count">{{ mediaIndex + 1 }} / {{ media.length }}</div>
       </div>
 
-      <!-- 价格区 -->
-      <div class="price-panel">
-        <div class="factory-row">
-          <span class="factory-pill">{{ factoryName }}</span>
-          <span class="factory-pill">{{ $t('detail.factory') }}</span>
-        </div>
-        <div class="price-row">
-          <span class="detail-price"><span class="rmb">$</span>{{ money(product.price) }}</span>
-          <span class="detail-currency">USD</span>
-        </div>
+      <!-- 标题区 -->
+      <div class="detail-title-block">
         <h1 class="detail-title">{{ title }}</h1>
       </div>
+
+      <!-- 媒体缩略图网格（正方形，图片/视频排列，点击预览） -->
+      <div class="media-grid">
+        <div
+          v-for="(m, i) in media"
+          :key="i"
+          class="media-thumb"
+          @click="openPreview(i)"
+        >
+          <img v-if="m.type === 'image'" :src="m.url" :alt="title" loading="lazy" />
+          <template v-else>
+            <video :src="m.url" muted loop playsinline preload="metadata" />
+            <span class="media-thumb-play">▶</span>
+          </template>
+        </div>
+      </div>
+
+      <!-- 全屏预览层（图片放大 / 视频播放，可关闭） -->
+      <transition name="fade">
+        <div v-if="previewIndex !== null" class="preview-overlay" @click="closePreview">
+          <div class="preview-close" @click.stop="closePreview">✕</div>
+          <div class="preview-content" @click.stop>
+            <template v-if="media[previewIndex]?.type === 'image'">
+              <img :src="media[previewIndex].url" :alt="title" />
+            </template>
+            <template v-else>
+              <video
+                :src="media[previewIndex]?.url"
+                controls
+                autoplay
+                playsinline
+              />
+            </template>
+          </div>
+        </div>
+      </transition>
 
       <!-- 参数 -->
       <section class="spec-section">
@@ -96,7 +126,11 @@ const description = computed(() => {
   return (product.value[`description_${lang}` as keyof Product] as string) || product.value.description_en || ''
 })
 
-const mediaIndex = ref(0)
+// 封面图：优先取第一张图片，否则取 cover
+const coverUrl = computed(() => {
+  const firstImage = media.value.find(m => m.type === 'image')
+  return firstImage?.url || product.value?.cover || ''
+})
 
 const factoryName = computed(() => {
   return title.value.split(' ').slice(0, 2).join(' ')
@@ -106,15 +140,16 @@ function money(n: number): string {
   return n.toLocaleString('en-US')
 }
 
-onMounted(() => {
-  initSwiper('#media-swiper', {
-    on: {
-      slideChange(this: { activeIndex: number }) {
-        mediaIndex.value = this.activeIndex
-      }
-    }
-  })
-})
+// 预览层：点击缩略图打开全屏预览（图片放大/视频播放）
+const previewIndex = ref<number | null>(null)
+
+function openPreview(index: number) {
+  previewIndex.value = index
+}
+
+function closePreview() {
+  previewIndex.value = null
+}
 
 definePageMeta({
   name: 'product-detail'
