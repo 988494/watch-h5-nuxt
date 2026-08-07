@@ -37,8 +37,9 @@ function money(n: number): string {
 }
 
 function goDetail() {
-  // 使用 localePath 生成带语言前缀的路径（prefix 策略下所有语言都有前缀）
+  // 整页跳转：详情页数据依赖服务端读取（useState），SPA 客户端导航不会重新执行 SSR，
+  // 导致产品数据缺失显示"找不到"。强制整页加载触发服务端渲染。
   const localePath = useLocalePath()
-  navigateTo(localePath(`/product/${props.product.slug}`))
+  window.location.href = localePath(`/product/${props.product.slug}`)
 }
 </script>

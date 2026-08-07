@@ -100,7 +100,8 @@ function isActive(path: string): boolean {
 
 function go(path: string) {
   menuOpen.value = false
-  navigateTo(localePath(path))
+  // 整页跳转：页面数据依赖服务端读取，SPA 导航不触发 SSR 会缺数据
+  window.location.href = localePath(path)
 }
 
 function openContact() {

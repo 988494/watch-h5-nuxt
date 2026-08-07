@@ -113,12 +113,14 @@ const filteredProducts = computed(() => {
 })
 
 function goBack() {
+  // 返回首页：整页跳转保证数据完整
   const localePath = useLocalePath()
-  navigateTo(localePath('/'))
+  window.location.href = localePath('/')
 }
 
 function navigateToSeries(seriesSlug: string) {
+  // 跳转系列页：分类页数据依赖服务端读取，整页跳转触发 SSR
   const localePath = useLocalePath()
-  navigateTo(localePath(`/category/${seriesSlug}`))
+  window.location.href = localePath(`/category/${seriesSlug}`)
 }
 </script>
