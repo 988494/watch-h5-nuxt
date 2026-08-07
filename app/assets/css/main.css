@@ -157,25 +157,6 @@ input {
   transition: transform 0.2s;
 }
 
-/* 返回箭头按钮（详情页等页面显示） */
-.back-arrow-btn {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: var(--gold-light);
-  font-size: 18px;
-  transition: transform 0.2s;
-}
-
-.back-arrow-btn:active {
-  transform: scale(0.92);
-}
-
 .hamburger:active {
   transform: scale(0.92);
 }
@@ -1687,6 +1668,33 @@ input {
   box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   animation: floatBounce 2.6s ease-in-out infinite;
+}
+
+/* =========================================================
+   浮动返回按钮（内容区域顶部浮动）
+   ========================================================= */
+.float-back-btn {
+  position: fixed;
+  left: 16px;
+  top: 78px; /* 避开顶部 topbar 高度 */
+  z-index: 140;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(13, 15, 20, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-light);
+  font-size: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s;
+}
+
+.float-back-btn:active {
+  transform: scale(0.9);
 }
 
 .float-contact-btn:active {

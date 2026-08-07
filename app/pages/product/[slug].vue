@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!-- 浮动返回按钮（覆盖在内容区域顶部） -->
+    <FloatingBack />
+
     <template v-if="product">
       <!-- 图集 -->
       <div class="media-gallery">
@@ -114,7 +117,6 @@ onMounted(() => {
 })
 
 definePageMeta({
-  name: 'product-detail',
-  showBack: true
+  name: 'product-detail'
 })
 </script>
