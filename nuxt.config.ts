@@ -29,15 +29,21 @@ function getDynamicRoutes(): string[] {
 // sitemap URL 列表（带优先级/更新频率）
 function getSitemapUrls() {
   const langs = LANG_CODES.map(l => `/${l}/`)
-  const today = new Date().toISOString().slice(0, 10)
+  // lastmod 使用带时间的 ISO 格式（如 2026-08-08T16:19:00+08:00）
+  const now = new Date()
+  const offset = -now.getTimezoneOffset()
+  const sign = offset >= 0 ? '+' : '-'
+  const absOffset = Math.abs(offset)
+  const tz = `${sign}${String(Math.floor(absOffset / 60)).padStart(2, '0')}:${String(absOffset % 60).padStart(2, '0')}`
+  const lastmod = now.toISOString().replace('Z', '') + tz
   const urls: { loc: string; lastmod: string; changefreq: string; priority: number }[] = []
 
   for (const prefix of langs) {
     // 首页（最高优先级）
-    urls.push({ loc: prefix, lastmod: today, changefreq: 'daily', priority: 1 })
+    urls.push({ loc: prefix, lastmod, changefreq: 'daily', priority: 1 })
     // FAQ / About
-    urls.push({ loc: `${prefix}faq`, lastmod: today, changefreq: 'weekly', priority: 0.6 })
-    urls.push({ loc: `${prefix}about`, lastmod: today, changefreq: 'monthly', priority: 0.5 })
+    urls.push({ loc: `${prefix}faq`, lastmod, changefreq: 'weekly', priority: 0.6 })
+    urls.push({ loc: `${prefix}about`, lastmod, changefreq: 'monthly', priority: 0.5 })
   }
 
   // 产品/分类（从 SQLite 枚举）
@@ -48,10 +54,10 @@ function getSitemapUrls() {
     const categories = db.prepare('SELECT slug FROM categories').all() as { slug: string }[]
     for (const prefix of langs) {
       for (const p of products) {
-        urls.push({ loc: `${prefix}product/${p.slug}`, lastmod: today, changefreq: 'weekly', priority: 0.8 })
+        urls.push({ loc: `${prefix}product/${p.slug}`, lastmod, changefreq: 'weekly', priority: 0.8 })
       }
       for (const c of categories) {
-        urls.push({ loc: `${prefix}category/${c.slug}`, lastmod: today, changefreq: 'weekly', priority: 0.7 })
+        urls.push({ loc: `${prefix}category/${c.slug}`, lastmod, changefreq: 'weekly', priority: 0.7 })
       }
     }
   } finally {
@@ -100,6 +106,8 @@ export default defineNuxtConfig({
     // 排除错误页和根重定向
     exclude: ['/404', '/200'],
     strictNuxtContentPaths: false,
+    // 纯静态站：构建时生成 sitemap，减少运行时开销
+    zeroRuntime: true,
     // 显式提供所有 URL（含优先级/更新频率/最后修改时间）
     urls: getSitemapUrls()
   },

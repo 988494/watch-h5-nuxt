@@ -11,9 +11,10 @@
  */
 const DEFAULT_PROD_URL = 'https://www.example.com'
 
-const isProd = process.env.NODE_ENV === 'production'
+// dev 模式下 NODE_ENV=development，用 localhost；其他（build/generate）用生产域名
+const isDev = process.env.NODE_ENV === 'development'
 
-export const SITE_URL = process.env.SITE_URL || (isProd ? DEFAULT_PROD_URL : 'http://localhost:3000')
+export const SITE_URL = process.env.SITE_URL || (isDev ? 'http://localhost:3000' : DEFAULT_PROD_URL)
 
 /** 站点名称（不同语言） */
 export const SITE_NAME = 'Luxury Timepieces'
