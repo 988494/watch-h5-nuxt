@@ -109,7 +109,26 @@ export default defineNuxtConfig({
     // 纯静态站：构建时生成 sitemap，减少运行时开销
     zeroRuntime: true,
     // 显式提供所有 URL（含优先级/更新频率/最后修改时间）
-    urls: getSitemapUrls()
+    urls: getSitemapUrls(),
+    // 自定义 sitemap 浏览器展示列（URL / 优先级 / 更新频率 / 最后修改时间）
+    xslColumns: [
+      { label: 'URL', width: '40%' },
+      {
+        label: 'Priority',
+        width: '15%',
+        select: 'concat(floor(sitemap:priority * 100), \'%\')'
+      },
+      {
+        label: 'Change Frequency',
+        width: '20%',
+        select: 'sitemap:changefreq'
+      },
+      {
+        label: 'Last Change',
+        width: '25%',
+        select: 'substring(sitemap:lastmod,0,20)'
+      }
+    ]
   },
 
   i18n: {
