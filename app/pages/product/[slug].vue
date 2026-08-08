@@ -40,25 +40,33 @@
         </div>
       </div>
 
-      <!-- 全屏预览层（图片放大 / 视频播放，可关闭）用 Teleport 挂到 body，脱离容器限制 -->
+      <!-- 全屏预览层（图片放大 / 视频播放，可左右滑动切换，可关闭）用 Teleport 挂到 body，脱离容器限制 -->
       <Teleport to="body">
         <transition name="fade">
-          <div v-if="previewIndex !== null" class="preview-overlay" @click="onPreviewContentClick">
+          <div v-if="previewIndex !== null" class="preview-overlay">
             <div class="preview-close" @click.stop="closePreview">✕</div>
-            <!-- 点击图片/视频本身不关闭；点击其周围空白区域关闭 -->
-            <div class="preview-content">
-              <template v-if="media[previewIndex]?.type === 'image'">
-                <img :src="media[previewIndex].url" :alt="title" />
-              </template>
-              <template v-else>
+            <div class="preview-count">{{ previewIndex + 1 }} / {{ media.length }}</div>
+            <swiper
+              :initial-slide="previewIndex"
+              :modules="[Navigation]"
+              :navigation="true"
+              @swiper="onPreviewSwiper"
+              @slide-change="onPreviewSlideChange"
+            >
+              <swiper-slide
+                v-for="(m, i) in media"
+                :key="i"
+                class="preview-slide"
+              >
+                <img v-if="m.type === 'image'" :src="m.url" :alt="title" />
                 <video
-                  :src="media[previewIndex]?.url"
+                  v-else
+                  :src="m.url"
                   controls
-                  autoplay
                   playsinline
                 />
-              </template>
-            </div>
+              </swiper-slide>
+            </swiper>
           </div>
         </transition>
       </Teleport>
@@ -83,6 +91,11 @@
 import type { Product, ProductMedia } from '@/types'
 import { DEFAULT_LANG, type LangCode } from '@/types'
 import { SITE_URL } from '../../../site.config'
+import { Swiper as SwiperInstance } from 'swiper'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 // SSG：构建时生成每个产品静态页
 const route = useRoute()
@@ -149,8 +162,9 @@ function money(n: number): string {
   return n.toLocaleString('en-US')
 }
 
-// 预览层：点击缩略图打开全屏预览（图片放大/视频播放）
+// 预览层：点击缩略图打开全屏预览（图片放大/视频播放，可左右滑动切换）
 const previewIndex = ref<number | null>(null)
+const previewSwiper = ref<SwiperInstance | null>(null)
 
 function openPreview(index: number) {
   previewIndex.value = index
@@ -160,12 +174,18 @@ function closePreview() {
   previewIndex.value = null
 }
 
-// 点击预览内容：点图片/视频本身不关闭，点空白区域关闭
-function onPreviewContentClick(event: MouseEvent) {
-  const target = event.target as HTMLElement
-  const isMedia = target.tagName === 'IMG' || target.tagName === 'VIDEO'
-  if (!isMedia) {
-    closePreview()
+// Swiper 初始化完成：跳到点击的媒体项
+function onPreviewSwiper(swiper: any) {
+  previewSwiper.value = swiper
+  if (previewIndex.value !== null) {
+    swiper.slideTo(previewIndex.value, 0)
+  }
+}
+
+// 滑动切换后同步当前索引
+function onPreviewSlideChange() {
+  if (previewSwiper.value) {
+    previewIndex.value = previewSwiper.value.realIndex
   }
 }
 

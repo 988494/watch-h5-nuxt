@@ -1089,16 +1089,67 @@ input {
   height: 100vh;
   z-index: 300;
   background: rgba(0, 0, 0, 0.92);
+}
+
+.preview-overlay .swiper {
+  width: 100%;
+  height: 100%;
+  z-index: 305;
+}
+
+.preview-overlay .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.preview-count {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 310;
+  padding: 4px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 14px;
+}
+
+.preview-overlay .swiper-button-prev,
+.preview-overlay .swiper-button-next {
+  color: #d4af37;
+  z-index: 312;
+}
+
+.preview-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.preview-slide img {
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  background: transparent;
+}
+
+.preview-slide video {
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  background: #000;
 }
 
 .preview-close {
   position: fixed;
   top: 16px;
   right: 16px;
-  z-index: 310;
+  z-index: 315;
   width: 40px;
   height: 40px;
   display: grid;
@@ -1108,33 +1159,6 @@ input {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
-}
-
-.preview-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out;
-}
-
-.preview-content img {
-  width: auto;
-  height: auto;
-  max-width: 92vw;
-  max-height: 88vh;
-  object-fit: contain;
-  background: transparent;
-}
-
-.preview-content video {
-  width: auto;
-  height: auto;
-  max-width: 92vw;
-  max-height: 88vh;
-  object-fit: contain;
-  background: #000;
 }
 
 /* 过渡动画 */

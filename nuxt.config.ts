@@ -193,7 +193,8 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
     'swiper/css',
     'swiper/css/autoplay',
-    'swiper/css/pagination'
+    'swiper/css/pagination',
+    'swiper/css/navigation'
   ],
 
   modules: ['@nuxtjs/i18n', '@nuxtjs/sitemap'],
