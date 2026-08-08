@@ -78,8 +78,7 @@ npm run dev
     "videos": "/videos/demo.mp4"
   },
   "title": { "zh": "...", "en": "...", "es": "...", "fr": "...", "ar": "..." },
-  "description": { ... 5 语言 ... },
-  "specs": { "zh": {...}, "en": {...}, ... }
+  "description": { ... 5 语言 ... }
 }
 ```
 

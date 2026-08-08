@@ -41,11 +41,6 @@ export interface Product {
   description_fr: string
   description_ar: string
   description_zh: string
-  specs_en: string // JSON 文本
-  specs_es: string
-  specs_fr: string
-  specs_ar: string
-  specs_zh: string
 }
 
 /** 产品图集（图片/视频） */
@@ -56,9 +51,6 @@ export interface ProductMedia {
   url: string
   sort: number
 }
-
-/** 解析后的参数表（specs JSON → 键值对） */
-export type SpecsMap = Record<string, string>
 
 /** 分类下拉框树结构（用于首页） */
 export interface CategoryOption {

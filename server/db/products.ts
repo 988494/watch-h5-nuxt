@@ -1,7 +1,7 @@
 /**
  * 产品查询（构建期使用）
  */
-import type { Product, ProductMedia, SpecsMap } from '@/types'
+import type { Product, ProductMedia } from '@/types'
 import { getDb } from '@/server/db/index'
 
 /** 读取全部产品 */
@@ -30,16 +30,6 @@ export function getProductMedia(productId: number): ProductMedia[] {
   return getDb()
     .prepare('SELECT * FROM product_media WHERE product_id = ? ORDER BY sort ASC, id ASC')
     .all(productId) as ProductMedia[]
-}
-
-/** 解析参数 JSON（防御性解析） */
-export function parseSpecs(raw: string): SpecsMap {
-  try {
-    const parsed = JSON.parse(raw || '{}')
-    return typeof parsed === 'object' && parsed !== null ? parsed : {}
-  } catch {
-    return {}
-  }
 }
 
 /** 产品的 id 列表（用于 getStaticPaths 生成静态页） */

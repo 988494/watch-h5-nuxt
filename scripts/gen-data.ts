@@ -26,7 +26,6 @@ interface MockProduct {
   cover: string
   title: LText
   description: LText
-  specs: Record<LangCode, Record<string, string>>
   /** 媒体资源：图片/视频 URL，多个用逗号分隔 */
   media?: {
     images?: string
@@ -88,9 +87,8 @@ function seed(): void {
     `INSERT INTO products (
       category_id, slug, sort, price, price_original, cover,
       title_en, title_es, title_fr, title_ar, title_zh,
-      description_en, description_es, description_fr, description_ar, description_zh,
-      specs_en, specs_es, specs_fr, specs_ar, specs_zh
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      description_en, description_es, description_fr, description_ar, description_zh
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
 
   const insMedia = db.prepare(
@@ -112,13 +110,10 @@ function seed(): void {
     const pSort = seriesSortCounter[p.category]
     seriesSortCounter[p.category] += 100
 
-    const specOf = (lang: LangCode) => JSON.stringify(p.specs?.[lang] ?? {})
-
     const info = insProduct.run(
       catId, p.slug, pSort, p.price, p.price_original, p.cover,
       p.title.en, p.title.es, p.title.fr, p.title.ar, p.title.zh,
-      p.description.en, p.description.es, p.description.fr, p.description.ar, p.description.zh,
-      specOf('en'), specOf('es'), specOf('fr'), specOf('ar'), specOf('zh')
+      p.description.en, p.description.es, p.description.fr, p.description.ar, p.description.zh
     )
     const pid = Number(info.lastInsertRowid)
 

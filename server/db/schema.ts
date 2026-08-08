@@ -36,11 +36,6 @@ export function createSchema(db: Database.Database): void {
       description_fr    TEXT NOT NULL DEFAULT '',
       description_ar    TEXT NOT NULL DEFAULT '',
       description_zh    TEXT NOT NULL DEFAULT '',
-      specs_en          TEXT NOT NULL DEFAULT '{}',
-      specs_es          TEXT NOT NULL DEFAULT '{}',
-      specs_fr          TEXT NOT NULL DEFAULT '{}',
-      specs_ar          TEXT NOT NULL DEFAULT '{}',
-      specs_zh          TEXT NOT NULL DEFAULT '{}',
       FOREIGN KEY (category_id) REFERENCES categories(id)
     );
 
