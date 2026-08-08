@@ -2,14 +2,16 @@
  * 联系客服状态管理（复制微信 / WhatsApp 弹层）
  * 使用 useState：SSR 状态隔离，客户端从 payload 恢复
  */
+import { CONTACT } from '../../site.config'
+
 export interface ContactInfo {
   wechat: string
   whatsapp: string
 }
 
 const DEFAULT_CONTACT: ContactInfo = {
-  wechat: 'WatchVip8888',
-  whatsapp: '+8613800138000'
+  wechat: CONTACT.wechat,
+  whatsapp: CONTACT.whatsapp
 }
 
 export function useContactStore() {

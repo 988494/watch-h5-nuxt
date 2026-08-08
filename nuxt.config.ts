@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { SITE_URL } from './site.config'
 
 // 从 SQLite 枚举所有产品/分类 slug（构建期生成静态页路由）
 function getDynamicRoutes(): string[] {
@@ -53,7 +54,18 @@ export default defineNuxtConfig({
     'swiper/css/pagination'
   ],
 
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/sitemap'],
+
+  // 站点配置（sitemap/SEO 使用）
+  site: {
+    url: SITE_URL
+  },
+
+  sitemap: {
+    // 排除错误页和根重定向
+    exclude: ['/404', '/200'],
+    strictNuxtContentPaths: false
+  },
 
   i18n: {
     strategy: 'prefix',
@@ -84,6 +96,7 @@ export default defineNuxtConfig({
       // 串行渲染，避免多语言页面并发时共享 db 连接导致数据错乱
       concurrency: 1,
       routes: [
+        '/robots.txt',
         '/en/',
         '/zh/',
         '/es/',

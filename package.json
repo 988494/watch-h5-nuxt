@@ -5,13 +5,14 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && node scripts/fix-robots.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "gen:data": "tsx scripts/gen-data.ts"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/sitemap": "^8.3.3",
     "better-sqlite3": "^13.0.3",
     "nuxt": "^4.5.2",
     "swiper": "^14.1.0",
