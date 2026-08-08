@@ -19,8 +19,8 @@ interface MockCategory {
 }
 
 interface MockProduct {
-  slug: string
-  category: string
+  product_slug: string
+  category_slug: string
   price: number
   price_original: number
   cover: string
@@ -98,20 +98,20 @@ function seed(): void {
   const seriesSortCounter: Record<string, number> = {}
 
   for (const p of products) {
-    const catId = childIds[p.category]
+    const catId = childIds[p.category_slug]
     if (!catId) {
-      console.warn(`跳过产品 ${p.slug}：分类 ${p.category} 不存在`)
+      console.warn(`跳过产品 ${p.product_slug}：分类 ${p.category_slug} 不存在`)
       continue
     }
 
-    if (!(p.category in seriesSortCounter)) {
-      seriesSortCounter[p.category] = 1000
+    if (!(p.category_slug in seriesSortCounter)) {
+      seriesSortCounter[p.category_slug] = 1000
     }
-    const pSort = seriesSortCounter[p.category]
-    seriesSortCounter[p.category] += 100
+    const pSort = seriesSortCounter[p.category_slug]
+    seriesSortCounter[p.category_slug] += 100
 
     const info = insProduct.run(
-      catId, p.slug, pSort, p.price, p.price_original, p.cover,
+      catId, p.product_slug, pSort, p.price, p.price_original, p.cover,
       p.title.en, p.title.es, p.title.fr, p.title.ar, p.title.zh,
       p.description.en, p.description.es, p.description.fr, p.description.ar, p.description.zh
     )
