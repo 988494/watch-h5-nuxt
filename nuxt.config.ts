@@ -77,6 +77,53 @@ function getSitemapUrls(): SitemapUrlEntry[] {
   return urls
 }
 
+// 从 SQLite 读取所有品牌和系列，生成 SEO keywords
+function getKeywords(): string {
+  const base = [
+    'replica watches',
+    'luxury watches',
+    '1:1 replica',
+    'super clone',
+    'replica watch store',
+    'wholesale replica watches'
+  ]
+
+  const dbPath = path.resolve(process.cwd(), 'data', 'watch.db')
+  const db = new Database(dbPath, { readonly: true })
+  try {
+    const brands = db.prepare("SELECT name_en, name_zh FROM categories WHERE parent_id IS NULL ORDER BY sort DESC").all() as { name_en: string; name_zh: string }[]
+    const series = db.prepare("SELECT name_en, name_zh FROM categories WHERE parent_id IS NOT NULL ORDER BY sort DESC").all() as { name_en: string; name_zh: string }[]
+
+    // 品牌关键词（英文 + 中文 + "品牌复刻"）
+    for (const b of brands) {
+      base.push(b.name_en.toLowerCase())
+      base.push(`${b.name_en} replica`)
+      base.push(`${b.name_en} replica watch`)
+      if (b.name_zh && b.name_zh !== b.name_en) {
+        base.push(b.name_zh)
+        base.push(`${b.name_zh}复刻`)
+        base.push(`${b.name_zh}仿表`)
+      }
+    }
+
+    // 系列关键词（英文 + 中文）
+    for (const s of series) {
+      base.push(s.name_en.toLowerCase())
+      base.push(`${s.name_en} replica`)
+      if (s.name_zh && s.name_zh !== s.name_en) {
+        base.push(s.name_zh)
+        base.push(`${s.name_zh}复刻`)
+      }
+    }
+  } catch {
+    // 数据库不存在时忽略
+  } finally {
+    db.close()
+  }
+
+  return Array.from(new Set(base)).join(', ')
+}
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -97,7 +144,7 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#0b0d12' },
         { name: 'charset', content: 'utf-8' },
         { name: 'description', content: 'Premium 1:1 replica watches from top factories. Rolex, Patek Philippe, Audemars Piguet, Omega and more. Quality assured, fast shipping, after-sales support.' },
-        { name: 'keywords', content: 'replica watches, luxury watches, rolex replica, patek philippe, 1:1 replica, super clone' },
+        { name: 'keywords', content: getKeywords() },
         { name: 'robots', content: 'index, follow' },
         { name: 'author', content: 'Luxury Timepieces' },
         { name: 'og:type', content: 'website' },
