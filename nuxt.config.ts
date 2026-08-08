@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { SITE_URL } from './site.config'
+import { SITE_URL, LANG_CODES } from './site.config'
 
 // 从 SQLite 枚举所有产品/分类 slug（构建期生成静态页路由）
 function getDynamicRoutes(): string[] {
@@ -10,7 +10,7 @@ function getDynamicRoutes(): string[] {
   try {
     const products = db.prepare('SELECT slug FROM products').all() as { slug: string }[]
     const categories = db.prepare('SELECT slug FROM categories').all() as { slug: string }[]
-    const langs = ['en/', 'es/', 'fr/', 'ar/', 'zh/']
+    const langs = LANG_CODES.map(l => `${l}/`)
     const routes: string[] = []
     for (const prefix of langs) {
       for (const p of products) {
@@ -24,6 +24,41 @@ function getDynamicRoutes(): string[] {
   } finally {
     db.close()
   }
+}
+
+// sitemap URL 列表（带优先级/更新频率）
+function getSitemapUrls() {
+  const langs = LANG_CODES.map(l => `/${l}/`)
+  const today = new Date().toISOString().slice(0, 10)
+  const urls: { loc: string; lastmod: string; changefreq: string; priority: number }[] = []
+
+  for (const prefix of langs) {
+    // 首页（最高优先级）
+    urls.push({ loc: prefix, lastmod: today, changefreq: 'daily', priority: 1 })
+    // FAQ / About
+    urls.push({ loc: `${prefix}faq`, lastmod: today, changefreq: 'weekly', priority: 0.6 })
+    urls.push({ loc: `${prefix}about`, lastmod: today, changefreq: 'monthly', priority: 0.5 })
+  }
+
+  // 产品/分类（从 SQLite 枚举）
+  const dbPath = path.resolve(process.cwd(), 'data', 'watch.db')
+  const db = new Database(dbPath, { readonly: true })
+  try {
+    const products = db.prepare('SELECT slug FROM products').all() as { slug: string }[]
+    const categories = db.prepare('SELECT slug FROM categories').all() as { slug: string }[]
+    for (const prefix of langs) {
+      for (const p of products) {
+        urls.push({ loc: `${prefix}product/${p.slug}`, lastmod: today, changefreq: 'weekly', priority: 0.8 })
+      }
+      for (const c of categories) {
+        urls.push({ loc: `${prefix}category/${c.slug}`, lastmod: today, changefreq: 'weekly', priority: 0.7 })
+      }
+    }
+  } finally {
+    db.close()
+  }
+
+  return urls
 }
 
 export default defineNuxtConfig({
@@ -64,7 +99,9 @@ export default defineNuxtConfig({
   sitemap: {
     // 排除错误页和根重定向
     exclude: ['/404', '/200'],
-    strictNuxtContentPaths: false
+    strictNuxtContentPaths: false,
+    // 显式提供所有 URL（含优先级/更新频率/最后修改时间）
+    urls: getSitemapUrls()
   },
 
   i18n: {
