@@ -132,9 +132,10 @@ const visibleProducts = computed<Product[]>(() => {
 })
 
 // SEO：首页标题/描述（多语言，品牌列表从数据库构建期注入 runtimeConfig）
+// 注意：useRuntimeConfig 必须在 setup 顶层调用（useHead 回调在 setup 上下文外执行）
+const runtimeConfig = useRuntimeConfig()
 useHead(() => {
-  const config = useRuntimeConfig()
-  const brands = (config.public.brandString as Record<string, string>)[lang] || ''
+  const brands = (runtimeConfig.public.brandString as Record<string, string>)[lang] || ''
   const title = t('seo.homeTitle')
   const desc = t('seo.homeDesc', { brands })
   return {
