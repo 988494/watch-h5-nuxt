@@ -991,7 +991,7 @@ input {
 .cover-factory {
   display: flex;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .cover-price-row {

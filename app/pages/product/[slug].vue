@@ -15,13 +15,13 @@
         </div>
       </div>
 
-      <!-- 标题区（厂牌标签 + 标题） -->
+      <!-- 标题区（标题 + 厂牌标签） -->
       <div class="detail-title-block">
+        <h1 class="detail-title">{{ title }}</h1>
         <div class="cover-factory">
           <span class="factory-pill">{{ factoryName }}</span>
           <span class="factory-pill">{{ $t('detail.factory') }}</span>
         </div>
-        <h1 class="detail-title">{{ title }}</h1>
       </div>
 
       <!-- 媒体缩略图网格（正方形，图片/视频排列，点击预览） -->
