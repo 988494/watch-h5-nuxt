@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { SITE_URL, LANG_CODES, BRANDS } from './site.config'
+import { SITE_URL, LANG_CODES } from './site.config'
 
 // 从 SQLite 枚举所有产品/分类 slug（构建期生成静态页路由）
 function getDynamicRoutes(): string[] {
@@ -77,7 +77,7 @@ function getSitemapUrls(): SitemapUrlEntry[] {
   return urls
 }
 
-// 从 BRANDS 常量 + SQLite 系列生成 SEO keywords
+// 从 SQLite 读取品牌和系列，生成 SEO keywords
 function getKeywords(): string {
   const base = [
     'replica watches',
@@ -88,20 +88,24 @@ function getKeywords(): string {
     'wholesale replica watches'
   ]
 
-  // 品牌关键词：用 BRANDS 常量（一次性列全 1 万+ 名表品牌，新增品牌只改 site.config.ts）
-  for (const b of BRANDS) {
-    base.push(b.en.toLowerCase())
-    base.push(`${b.en} replica`)
-    base.push(`${b.en} replica watch`)
-    base.push(b.zh)
-    base.push(`${b.zh}复刻`)
-    base.push(`${b.zh}仿表`)
-  }
-
-  // 系列关键词（从 SQLite 读取）
   const dbPath = path.resolve(process.cwd(), 'data', 'watch.db')
   const db = new Database(dbPath, { readonly: true })
   try {
+    // 品牌关键词（中英文 + 复刻/仿表变体）
+    const brands = db.prepare("SELECT name_en, name_zh FROM categories WHERE parent_id IS NULL ORDER BY sort DESC").all() as { name_en: string; name_zh: string }[]
+
+    for (const b of brands) {
+      base.push(b.name_en.toLowerCase())
+      base.push(`${b.name_en} replica`)
+      base.push(`${b.name_en} replica watch`)
+      if (b.name_zh && b.name_zh !== b.name_en) {
+        base.push(b.name_zh)
+        base.push(`${b.name_zh}复刻`)
+        base.push(`${b.name_zh}仿表`)
+      }
+    }
+
+    // 系列关键词
     const series = db.prepare("SELECT name_en, name_zh FROM categories WHERE parent_id IS NOT NULL ORDER BY sort DESC").all() as { name_en: string; name_zh: string }[]
 
     for (const s of series) {
@@ -121,6 +125,22 @@ function getKeywords(): string {
   return Array.from(new Set(base)).join(', ')
 }
 
+// 从 SQLite 读取品牌列表字符串（供首页 description 使用）
+function getBrandsFromDb(lang: string): string {
+  const dbPath = path.resolve(process.cwd(), 'data', 'watch.db')
+  const db = new Database(dbPath, { readonly: true })
+  try {
+    const rows = db.prepare("SELECT name_en, name_zh FROM categories WHERE parent_id IS NULL ORDER BY sort DESC").all() as { name_en: string; name_zh: string }[]
+    const isZh = lang === 'zh'
+    const names = rows.map(r => isZh ? r.name_zh : r.name_en)
+    return names.join(', ')
+  } catch {
+    return ''
+  } finally {
+    db.close()
+  }
+}
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -130,6 +150,15 @@ export default defineNuxtConfig({
   // （~/ 仍指向 app/，是 Nuxt 约定，保持不变）
   alias: {
     '@': fileURLToPath(new URL('.', import.meta.url))
+  },
+
+  // 注入各语言品牌字符串（构建期从数据库读取，供页面 description 使用）
+  runtimeConfig: {
+    public: {
+      brandString: Object.fromEntries(
+        LANG_CODES.map(lang => [lang, getBrandsFromDb(lang)])
+      )
+    }
   },
 
   app: {

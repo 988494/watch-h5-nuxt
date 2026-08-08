@@ -75,7 +75,7 @@
 import type { Product, CategoryOption } from '@/types'
 import { DEFAULT_LANG } from '@/types'
 import type { LangCode } from '@/types'
-import { SITE_URL, getBrandsString } from '../../../site.config'
+import { SITE_URL } from '@/site.config'
 
 const { locale, t } = useI18n()
 const lang = (locale.value || DEFAULT_LANG) as LangCode
@@ -131,9 +131,10 @@ const visibleProducts = computed<Product[]>(() => {
   return list
 })
 
-// SEO：首页标题/描述（多语言，品牌列表从 site.config 动态生成）
+// SEO：首页标题/描述（多语言，品牌列表从数据库构建期注入 runtimeConfig）
 useHead(() => {
-  const brands = getBrandsString(lang)
+  const config = useRuntimeConfig()
+  const brands = (config.public.brandString as Record<string, string>)[lang] || ''
   const title = t('seo.homeTitle')
   const desc = t('seo.homeDesc', { brands })
   return {
