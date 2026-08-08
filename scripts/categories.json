@@ -3,45 +3,45 @@
     "slug": "rolex",
     "names": { "zh": "劳力士", "en": "Rolex", "es": "Rolex", "fr": "Rolex", "ar": "رولكس" },
     "children": [
-      { "slug": "submariner", "names": { "zh": "潜航者型", "en": "Submariner", "es": "Submariner", "fr": "Submariner", "ar": "سابمارينر" } },
-      { "slug": "daytona", "names": { "zh": "迪通拿", "en": "Daytona", "es": "Daytona", "fr": "Daytona", "ar": "ديتونا" } },
-      { "slug": "datejust", "names": { "zh": "日志型", "en": "Datejust", "es": "Datejust", "fr": "Datejust", "ar": "ديت جست" } }
+      { "slug": "rolex-submariner", "names": { "zh": "潜航者型", "en": "Submariner", "es": "Submariner", "fr": "Submariner", "ar": "سابمارينر" } },
+      { "slug": "rolex-daytona", "names": { "zh": "迪通拿", "en": "Daytona", "es": "Daytona", "fr": "Daytona", "ar": "ديتونا" } },
+      { "slug": "rolex-datejust", "names": { "zh": "日志型", "en": "Datejust", "es": "Datejust", "fr": "Datejust", "ar": "ديت جست" } }
     ]
   },
   {
     "slug": "patek",
     "names": { "zh": "百达翡丽", "en": "Patek Philippe", "es": "Patek Philippe", "fr": "Patek Philippe", "ar": "باتيك فيليب" },
     "children": [
-      { "slug": "nautilus", "names": { "zh": "鹦鹉螺", "en": "Nautilus", "es": "Nautilus", "fr": "Nautilus", "ar": "نوتيلوس" } },
-      { "slug": "aquanaut", "names": { "zh": "手雷", "en": "Aquanaut", "es": "Aquanaut", "fr": "Aquanaut", "ar": "أكوانوت" } }
+      { "slug": "patek-nautilus", "names": { "zh": "鹦鹉螺", "en": "Nautilus", "es": "Nautilus", "fr": "Nautilus", "ar": "نوتيلوس" } },
+      { "slug": "patek-aquanaut", "names": { "zh": "手雷", "en": "Aquanaut", "es": "Aquanaut", "fr": "Aquanaut", "ar": "أكوانوت" } }
     ]
   },
   {
     "slug": "audemars",
     "names": { "zh": "爱彼", "en": "Audemars Piguet", "es": "Audemars Piguet", "fr": "Audemars Piguet", "ar": "أوديمار بيغه" },
     "children": [
-      { "slug": "royaloak", "names": { "zh": "皇家橡树", "en": "Royal Oak", "es": "Royal Oak", "fr": "Royal Oak", "ar": "رويال أوك" } }
+      { "slug": "audemars-royaloak", "names": { "zh": "皇家橡树", "en": "Royal Oak", "es": "Royal Oak", "fr": "Royal Oak", "ar": "رويال أوك" } }
     ]
   },
   {
     "slug": "omega",
     "names": { "zh": "欧米茄", "en": "Omega", "es": "Omega", "fr": "Omega", "ar": "أوميغا" },
     "children": [
-      { "slug": "speedmaster", "names": { "zh": "超霸", "en": "Speedmaster", "es": "Speedmaster", "fr": "Speedmaster", "ar": "سبيد ماستر" } }
+      { "slug": "omega-speedmaster", "names": { "zh": "超霸", "en": "Speedmaster", "es": "Speedmaster", "fr": "Speedmaster", "ar": "سبيد ماستر" } }
     ]
   },
   {
     "slug": "richardmille",
     "names": { "zh": "理查米尔", "en": "Richard Mille", "es": "Richard Mille", "fr": "Richard Mille", "ar": "ريتشارد ميل" },
     "children": [
-      { "slug": "rm35", "names": { "zh": "RM35", "en": "RM35", "es": "RM35", "fr": "RM35", "ar": "RM35" } }
+      { "slug": "richardmille-rm35", "names": { "zh": "RM35", "en": "RM35", "es": "RM35", "fr": "RM35", "ar": "RM35" } }
     ]
   },
   {
     "slug": "cartier",
     "names": { "zh": "卡地亚", "en": "Cartier", "es": "Cartier", "fr": "Cartier", "ar": "كارتييه" },
     "children": [
-      { "slug": "santos", "names": { "zh": "山度士", "en": "Santos", "es": "Santos", "fr": "Santos", "ar": "سانتوس" } }
+      { "slug": "cartier-santos", "names": { "zh": "山度士", "en": "Santos", "es": "Santos", "fr": "Santos", "ar": "سانتوس" } }
     ]
   }
 ]
