@@ -27,7 +27,16 @@ function getDynamicRoutes(): string[] {
 }
 
 // sitemap URL 列表（带优先级/更新频率）
-function getSitemapUrls() {
+type Changefreq = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
+
+interface SitemapUrlEntry {
+  loc: string
+  lastmod: string
+  changefreq: Changefreq
+  priority: number
+}
+
+function getSitemapUrls(): SitemapUrlEntry[] {
   const langs = LANG_CODES.map(l => `/${l}/`)
   // lastmod 使用带时间的 ISO 格式（如 2026-08-08T16:19:00+08:00）
   const now = new Date()
@@ -36,7 +45,7 @@ function getSitemapUrls() {
   const absOffset = Math.abs(offset)
   const tz = `${sign}${String(Math.floor(absOffset / 60)).padStart(2, '0')}:${String(absOffset % 60).padStart(2, '0')}`
   const lastmod = now.toISOString().replace('Z', '') + tz
-  const urls: { loc: string; lastmod: string; changefreq: string; priority: number }[] = []
+  const urls: SitemapUrlEntry[] = []
 
   for (const prefix of langs) {
     // 首页（最高优先级）
