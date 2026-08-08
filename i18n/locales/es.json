@@ -98,5 +98,17 @@
       "4": { "title": "Soporte Posventa", "desc": "Respondemos con un servicio atento." }
     },
     "ctaText": "¿Quiere saber más? Contacte a nuestro consultor."
+  },
+  "seo": {
+    "homeTitle": "Relojes de Lujo - Réplicas 1:1 Premium",
+    "homeDesc": "Compre réplicas 1:1 premium de las mejores fábricas. Rolex, Patek Philippe, Audemars Piguet, Omega y más. Calidad garantizada, envío rápido.",
+    "faqTitle": "Preguntas Frecuentes - Relojes de Lujo",
+    "faqDesc": "Respuestas a preguntas comunes sobre nuestros relojes réplica: calidad, pedido, envío, devoluciones, garantía y pago.",
+    "aboutTitle": "Sobre Nosotros - Relojes de Lujo",
+    "aboutDesc": "Conozca Relojes de Lujo: nuestra historia, estándares de calidad y por qué los clientes nos eligen.",
+    "categoryTitle": "Relojes {name} - Relojes de Lujo",
+    "categoryDesc": "Explore relojes {name}. Réplicas 1:1 premium con garantía de calidad y envío rápido.",
+    "productTitle": "{name} - Relojes de Lujo",
+    "productDesc": "{name} a {price} USD. Réplica 1:1 premium con garantía de calidad y soporte posventa."
   }
 }

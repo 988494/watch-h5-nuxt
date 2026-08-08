@@ -96,12 +96,13 @@
 <script setup lang="ts">
 import type { Product, ProductMedia, SpecsMap } from '@/types'
 import { DEFAULT_LANG, type LangCode } from '@/types'
+import { SITE_URL } from '../../../site.config'
 
 // SSG：构建时生成每个产品静态页
 const route = useRoute()
 const slug = String(route.params.slug)
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const lang = (locale.value || DEFAULT_LANG) as LangCode
 
 // 数据存 useState：key 含语言，避免 SSG 多语言预渲染互相污染
@@ -133,6 +134,27 @@ const description = computed(() => {
 const coverUrl = computed(() => {
   const firstImage = media.value.find(m => m.type === 'image')
   return firstImage?.url || product.value?.cover || ''
+})
+
+// SEO
+useHead(() => {
+  const name = title.value || slug
+  const price = product.value?.price ?? 0
+  const seoTitle = t('seo.productTitle', { name })
+  const seoDesc = t('seo.productDesc', { name, price })
+  return {
+    title: seoTitle,
+    meta: [
+      { name: 'description', content: seoDesc },
+      { name: 'og:title', content: seoTitle },
+      { name: 'og:description', content: seoDesc },
+      { name: 'og:image', content: coverUrl.value },
+      { name: 'twitter:title', content: seoTitle },
+      { name: 'twitter:description', content: seoDesc },
+      { name: 'twitter:image', content: coverUrl.value }
+    ],
+    link: [{ rel: 'canonical', href: `${SITE_URL}/${lang}/product/${slug}` }]
+  }
 })
 
 const factoryName = computed(() => {

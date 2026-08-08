@@ -75,8 +75,9 @@
 import type { Product, CategoryOption } from '@/types'
 import { DEFAULT_LANG } from '@/types'
 import type { LangCode } from '@/types'
+import { SITE_URL } from '../../../site.config'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const lang = (locale.value || DEFAULT_LANG) as LangCode
 
 // 分类/产品数据：useState 服务端读取赋值，客户端从 payload 自动恢复
@@ -128,6 +129,23 @@ const visibleProducts = computed<Product[]>(() => {
   }
 
   return list
+})
+
+// SEO：首页标题/描述（多语言）
+useHead(() => {
+  const title = t('seo.homeTitle')
+  const desc = t('seo.homeDesc')
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { name: 'og:title', content: title },
+      { name: 'og:description', content: desc },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: desc }
+    ],
+    link: [{ rel: 'canonical', href: `${SITE_URL}/${lang}/` }]
+  }
 })
 
 // Banner 轮播初始化（客户端执行）

@@ -54,12 +54,13 @@
 <script setup lang="ts">
 import type { Category, CategoryOption, Product } from '@/types'
 import { DEFAULT_LANG, type LangCode } from '@/types'
+import { SITE_URL } from '../../../site.config'
 
 // SSG：构建时生成每个分类静态页
 const route = useRoute()
 const slug = String(route.params.slug)
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const lang = (locale.value || DEFAULT_LANG) as LangCode
 
 // 数据存 useState：key 含语言，避免 SSG 多语言预渲染互相污染
@@ -81,6 +82,22 @@ if (import.meta.server) {
 const categoryName = computed(() => {
   if (!category.value) return slug
   return (category.value[`name_${lang}` as keyof Category] as string) || category.value.name_en
+})
+
+// SEO
+useHead(() => {
+  const name = categoryName.value || slug
+  return {
+    title: t('seo.categoryTitle', { name }),
+    meta: [
+      { name: 'description', content: t('seo.categoryDesc', { name }) },
+      { name: 'og:title', content: t('seo.categoryTitle', { name }) },
+      { name: 'og:description', content: t('seo.categoryDesc', { name }) },
+      { name: 'twitter:title', content: t('seo.categoryTitle', { name }) },
+      { name: 'twitter:description', content: t('seo.categoryDesc', { name }) }
+    ],
+    link: [{ rel: 'canonical', href: `${SITE_URL}/${lang}/category/${slug}` }]
+  }
 })
 
 // 子分类（系列）

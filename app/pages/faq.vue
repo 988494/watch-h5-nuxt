@@ -35,8 +35,26 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+import { DEFAULT_LANG } from '@/types'
+import type { LangCode } from '@/types'
+import { SITE_URL } from '../../site.config'
+
+const { t, locale } = useI18n()
+const lang = (locale.value || DEFAULT_LANG) as LangCode
 const contact = useContactStore()
+
+// SEO
+useHead(() => ({
+  title: t('seo.faqTitle'),
+  meta: [
+    { name: 'description', content: t('seo.faqDesc') },
+    { name: 'og:title', content: t('seo.faqTitle') },
+    { name: 'og:description', content: t('seo.faqDesc') },
+    { name: 'twitter:title', content: t('seo.faqTitle') },
+    { name: 'twitter:description', content: t('seo.faqDesc') }
+  ],
+  link: [{ rel: 'canonical', href: `${SITE_URL}/${lang}/faq` }]
+}))
 
 const faqItems = computed(() => {
   const keys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6']

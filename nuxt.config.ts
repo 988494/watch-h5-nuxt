@@ -91,9 +91,27 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Luxury Timepieces - Premium Replica Watches',
+      htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover' },
-        { name: 'theme-color', content: '#0b0d12' }
+        { name: 'theme-color', content: '#0b0d12' },
+        { name: 'charset', content: 'utf-8' },
+        { name: 'description', content: 'Premium 1:1 replica watches from top factories. Rolex, Patek Philippe, Audemars Piguet, Omega and more. Quality assured, fast shipping, after-sales support.' },
+        { name: 'keywords', content: 'replica watches, luxury watches, rolex replica, patek philippe, 1:1 replica, super clone' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'author', content: 'Luxury Timepieces' },
+        { name: 'og:type', content: 'website' },
+        { name: 'og:site_name', content: 'Luxury Timepieces' },
+        { name: 'og:title', content: 'Luxury Timepieces - Premium Replica Watches' },
+        { name: 'og:description', content: 'Premium 1:1 replica watches from top factories. Quality assured, fast shipping, after-sales support.' },
+        { name: 'og:image', content: '/images/banners/banner1.svg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Luxury Timepieces - Premium Replica Watches' },
+        { name: 'twitter:description', content: 'Premium 1:1 replica watches from top factories.' }
+      ],
+      link: [
+        { rel: 'canonical', href: `${SITE_URL}/` },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' }
       ]
     }
   },

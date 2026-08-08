@@ -36,8 +36,26 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+import { DEFAULT_LANG } from '@/types'
+import type { LangCode } from '@/types'
+import { SITE_URL } from '../../site.config'
+
+const { t, locale } = useI18n()
+const lang = (locale.value || DEFAULT_LANG) as LangCode
 const contact = useContactStore()
+
+// SEO
+useHead(() => ({
+  title: t('seo.aboutTitle'),
+  meta: [
+    { name: 'description', content: t('seo.aboutDesc') },
+    { name: 'og:title', content: t('seo.aboutTitle') },
+    { name: 'og:description', content: t('seo.aboutDesc') },
+    { name: 'twitter:title', content: t('seo.aboutTitle') },
+    { name: 'twitter:description', content: t('seo.aboutDesc') }
+  ],
+  link: [{ rel: 'canonical', href: `${SITE_URL}/${lang}/about` }]
+}))
 
 const aboutIcons = ['✓', '🛡', '🚚', '⚡']
 
