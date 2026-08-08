@@ -4,8 +4,16 @@
  * 部署时只需修改此文件即可全局生效
  */
 
-/** 站点域名（sitemap/robots/SEO 使用，部署时改成真实域名） */
-export const SITE_URL = 'https://www.example.com'
+/**
+ * 站点域名（sitemap/robots/SEO 使用）
+ * - dev：默认 http://localhost:3000
+ * - 生产：通过环境变量 SITE_URL 指定（见 .env），未配置时回退到默认正式域名
+ */
+const DEFAULT_PROD_URL = 'https://www.example.com'
+
+const isProd = process.env.NODE_ENV === 'production'
+
+export const SITE_URL = process.env.SITE_URL || (isProd ? DEFAULT_PROD_URL : 'http://localhost:3000')
 
 /** 站点名称（不同语言） */
 export const SITE_NAME = 'Luxury Timepieces'
